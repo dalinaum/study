@@ -30,15 +30,15 @@
 
 (defun objects-at (loc objs obj-locs)
   (flet ((at-loc-p (obj)
-            (eq (cadr (assoc obj obj-locs)) loc)))
+           (eq (cadr (assoc obj obj-locs)) loc)))
         (remove-if-not #'at-loc-p objs)))
 
 (defun describe-objects (loc objs obj-loc)
   (flet ((describe-obj (obj)
-          `(you see a ,obj on the floor.)))
-        (apply #'append
-          (mapcar #'describe-obj
-            (objects-at loc objs obj-loc)))))
+           `(you see a ,obj on the floor.)))
+    (apply #'append
+           (mapcar #'describe-obj
+		   (objects-at loc objs obj-loc)))))
 
 (defparameter *location* 'living-room)
 
@@ -69,7 +69,7 @@
 (defun game-repl ()
   (let ((cmd (game-read)))
        (unless (eq (car cmd) 'quit)
-               (game-print (game-eval cmd))
+         (game-print (game-eval cmd))
                (game-repl))))
 
 (defun game-read ()
