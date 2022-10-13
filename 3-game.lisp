@@ -47,19 +47,20 @@
           (describe-paths *location* *edges*)
           (describe-objects *location* *objects* *object-locations*)))
 
+;; (find 'y '((5 x) (3 y) (7 z)) :key #'cadr) => (3 y)
 (defun walk (direction)
   (let ((next (find direction
                     (cdr (assoc *location* *edges*))
                     :key #'cadr)))
         (if next
-            (progn (setf *location* (car next))
-                   (look))
-            '(you cannot go that way.))))
+            (progn
+	      (setf *location* (car next))
+	      (look))
+	    '(you cannot go that way.))))
 
 (defun pickup (object)
-  (cond ((member object
-          (objects-at *location* *objects* *object-locations*))
-         (push (list object 'body) *object-locations*)
+  (cond ((member object (objects-at *location* *objects* *object-locations*))
+	 (push (list object 'body) *object-locations*)
          `(you are now carrying the ,object))
         (t '(you cannot get that.))))
 
@@ -87,22 +88,20 @@
 
 (defun tweak-text (lst caps lit)
   (when lst
-        (let ((item (car lst))
-              (rest (cdr lst)))
-             (cond ((eql item #\space)
-                    (cons item (tweak-text rest caps lit)))
-                   ((member item '(#\! #\? #\.))
-                    (cons item (tweak-text rest t lit)))
-                   ((eql item #\") (tweak-text rest caps (not lit)))
-                   (lit (cons item (tweak-text rest nil lit)))
-                   (caps (cons (char-upcase item) (tweak-text rest nil lit)))
-                   (t (cons (char-downcase item) (tweak-text rest nil nil)))))))
+    (let ((item (car lst))
+          (rest (cdr lst)))
+      (cond ((eql item #\space)
+             (cons item (tweak-text rest caps lit)))
+            ((member item '(#\! #\? #\.))
+             (cons item (tweak-text rest t lit)))
+            ((eql item #\") (tweak-text rest caps (not lit)))
+            (lit (cons item (tweak-text rest nil lit)))
+            (caps (cons (char-upcase item) (tweak-text rest nil lit)))
+            (t (cons (char-downcase item) (tweak-text rest nil nil)))))))
 
 (defun game-print (lst)
-  (princ (coerce (tweak-text (coerce (string-trim "() "
-                                                  (prin1-to-string lst))
-                                     'list)
-                             t
-                             nil)
-                 'string))
+  (princ (coerce
+	  (tweak-text (coerce (string-trim "() " (prin1-to-string lst)) 'list)
+		      t nil)
+	  'string))
   (fresh-line))
