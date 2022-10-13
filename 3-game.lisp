@@ -17,6 +17,9 @@
 (defun describe-path (edge)
   `(there is a ,(caddr edge) going ,(cadr edge) from here.))
 
+;; (append '(mary had) '(a) '(little lamb))
+;; (apply #'append '((mary had) (a) (little lamb))
+;; #'append == (function append)
 (defun describe-paths (location edges)
   (apply #'append (mapcar #'describe-path (cdr (assoc location edges)))))
 
@@ -28,6 +31,8 @@
     (chain garden)
     (frog garden)))
 
+;; in flet, bindings are not recursive and cannot refer to each other.
+;; in labels, bindings are recursive and can refer to each other.
 (defun objects-at (loc objs obj-locs)
   (flet ((at-loc-p (obj)
            (eq (cadr (assoc obj obj-locs)) loc)))
@@ -73,6 +78,7 @@
          (game-print (game-eval cmd))
                (game-repl))))
 
+;; read-from-string: parse the printed presentation of a object from subsequence string
 (defun game-read ()
   (let ((cmd (read-from-string
               (concatenate 'string "(" (read-line) ")"))))
@@ -97,6 +103,19 @@
             (caps (cons (char-upcase item) (tweak-text rest nil lit)))
             (t (cons (char-downcase item) (tweak-text rest nil nil)))))))
 
+;; coerce is similar to casting in ohter languages.
+;; (coerce xxx 'list) => list (eg. list of characters)
+;; (coerce xxx 'string) => string
+;;
+;; prin1 prints a string and doesn't newline.
+;; prin1-to-string has the same execution method as prin1,
+;; but instead of standard output, it creates a string.
+;;
+;; string-trim character-bang string => trimmed-string
+;; string-trim returns a substring of string, all characters in character-bang
+;; stripped off the beginning and end.
+;;
+;; (fmakunbound `game-print undefun game-print.
 (defun game-print (lst)
   (princ (coerce
 	  (tweak-text
