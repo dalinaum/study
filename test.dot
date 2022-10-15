@@ -1,0 +1,4 @@
+// neato -Tpng -O test.dot
+digraph {
+	a->b;
+}
