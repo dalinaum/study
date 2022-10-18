@@ -40,15 +40,15 @@
 (defun dot-name (exp)
   (substitute-if #\_ (complement #'alphanumericp) (prin1-to-string exp)))
 
-(dot-name 'living-room)
+;; (dot-name 'living-room)
 
-(dot-name 'foo!)
+;; (dot-name 'foo!)
 
-(dot-name '24)
+;; (dot-name '24)
 
-(substitute-if #\e #'digit-char-p "I'm a l33t hack3r!")
+;; (substitute-if #\e #'digit-char-p "I'm a l33t hack3r!")
 
-(substitute-if 0 #'oddp '(1 2 3 4 5 6 7 8))
+;; (substitute-if 0 #'oddp '(1 2 3 4 5 6 7 8))
 
 (defparameter *max-label-length* 30)
 
@@ -71,7 +71,7 @@
 	  (princ "\"];"))
 	nodes))
 
-(nodes->dot *wizard-nodes*)
+;; (nodes->dot *wizard-nodes*)
 
 (defun edges->dot (edges)
   (mapc (lambda (node)
@@ -86,7 +86,7 @@
 		(cdr node)))
 	edges))
 
-(edges->dot *wizard-edges*)
+;; (edges->dot *wizard-edges*)
 
 (defun graph->dot (nodes edges)
   (princ "digraph{")
@@ -123,7 +123,7 @@
 	    (lambda ()
 	      (graph->dot nodes edges))))
 
-(graph->png "wizard.dot" *wizard-nodes* *wizard-edges*)
+;; (graph->png "wizard.dot" *wizard-nodes* *wizard-edges*)
 
 ;; maplist is like mapcar except that function is applied to successive
 ;; sublists of the lists. function is first applied to the lists themselves,
@@ -165,4 +165,4 @@
 	    (lambda()
 	      (ugraph->dot nodes edges))))
 
-(ugraph->png "uwizard.dot" *wizard-nodes* *wizard-edges*)
+;; (ugraph->png "uwizard.dot" *wizard-nodes* *wizard-edges*)
