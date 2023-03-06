@@ -13,4 +13,8 @@ data Structure
     | Paragraph String
     | UnorderedList [String]
     | OrderedList [String]
-    | CodeBlock [String] 
+    | CodeBlock [String]
+    deriving Show
+
+print :: Show a => a -> IO ()
+print = putStrLn . show

@@ -7,10 +7,8 @@ myhtml :: Html
 myhtml =
     html_
         "Hello title"
-        (   append_
-            (   h1_ "Hello, world!")
-            (   append_
-                (p_ "Paragraph #1")
+        (   h1_ "Hello, world!" <>
+            (   (p_ "Paragraph #1") <>
                 (p_ "Paragraph #2")
             )
         )
