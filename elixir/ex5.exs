@@ -14,3 +14,5 @@ end
 fizz_buzz = fn
   n -> fizz_buzz_string.(rem(n, 3), rem(n, 5), n)
 end
+
+prefix = fn prefix -> fn name -> "#{prefix} #{name}" end end
