@@ -14,4 +14,14 @@ defmodule MyEnum do
   def each([head | tail], f) do
     [f.(head) | each(tail, f)]
   end
+
+  def filter([], _f), do: []
+
+  def filter([head | tail], f) do
+    if f.(head) do
+      [head | filter(tail, f)]
+    else
+      filter(tail, f)
+    end
+  end
 end
