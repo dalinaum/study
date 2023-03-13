@@ -24,4 +24,18 @@ defmodule MyEnum do
       filter(tail, f)
     end
   end
+
+  def split(list, n), do: split([], list, n)
+
+  def split(collection, [], _n) do
+    [Enum.reverse(collection), []]
+  end
+
+  def split(collection, list, 0) do
+    [Enum.reverse(collection), list]
+  end
+
+  def split(collection, [head | tail], n) do
+    split([head | collection], tail, n - 1)
+  end
 end
