@@ -38,4 +38,16 @@ defmodule MyEnum do
   def split(collection, [head | tail], n) do
     split([head | collection], tail, n - 1)
   end
+
+  def flatten(list), do: flatten([], list)
+
+  def flatten(collection, []), do: Enum.reverse(collection)
+
+  def flatten(collection, [head | tail]) do
+    if is_list(head) do
+      flatten(collection, head ++ tail)
+    else
+      flatten([head | collection], tail)
+    end
+  end
 end
