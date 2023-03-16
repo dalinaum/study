@@ -50,4 +50,35 @@ defmodule MyCharList do
       end
     end
   end
+
+  def total_amount() do
+    file = File.open!("tax.csv")
+    IO.read(file, :line)
+
+    file
+    |> IO.stream(:line)
+    |> Enum.map(fn str ->
+      [str_id, str_ship_to, str_net_amount] = String.split(str, ",")
+      {id, _} = Integer.parse(str_id)
+      ship_to = str_ship_to |> String.replace(":", "") |> String.to_atom()
+      {net_amount, _} = Float.parse(str_net_amount)
+      [id: id, ship_to: ship_to, net_amount: net_amount]
+    end)
+    |> _total_amount
+  end
+
+  def _total_amount(orders) do
+    tax_rates = [NC: 0.075, TX: 0.08]
+
+    for order <- orders do
+      if order[:ship_to] in Keyword.keys(tax_rates) do
+        net_amount = order[:net_amount]
+        tax_rate = tax_rates[order[:ship_to]]
+        total_amount = net_amount + net_amount * tax_rate
+        order = Keyword.put(order, :total_amount, total_amount)
+      else
+        order
+      end
+    end
+  end
 end
