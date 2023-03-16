@@ -25,7 +25,7 @@ defmodule MyList do
         net_amount = order[:net_amount]
         tax_rate = tax_rates[order[:ship_to]]
         total_amount = net_amount + net_amount * tax_rate
-        order = Keyword.put(order, :total_amount, total_amount)
+        Keyword.put(order, :total_amount, total_amount)
       else
         order
       end
