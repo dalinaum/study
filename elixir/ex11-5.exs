@@ -20,7 +20,7 @@ defmodule MyCharList do
     _center(tail, max_length)
   end
 
-  def capitalize_sentences(str), do: _capitalize_sentences(str, true, true, << >>)
+  def capitalize_sentences(str), do: _capitalize_sentences(str, true, true, <<>>)
 
   def _capitalize_sentences(<<>>, _after_dot, _after_space, str), do: str
 
