@@ -2,7 +2,7 @@ defmodule MyCharList do
   def is_printable([]), do: true
 
   def is_printable([head | tail]) do
-    if (head >= 32 and head <= 126) do
+    if head >= 32 and head <= 126 do
       is_printable(tail)
     else
       false
@@ -18,11 +18,13 @@ defmodule MyCharList do
   def number(str), do: _number_digits(str, 0)
 
   defp _number_digits([], value), do: value
-  defp _number_digits([ digit | tail], value)
-  when digit in '0123456789' do
+
+  defp _number_digits([digit | tail], value)
+       when digit in '0123456789' do
     _number_digits(tail, value * 10 + digit - ?0)
   end
-  defp _number_ditigs([ non_digit | _tail], _value) do
+
+  defp _number_ditigs([non_digit | _tail], _value) do
     raise "Invalid digit '#{[non_digit]}'"
   end
 
@@ -30,6 +32,7 @@ defmodule MyCharList do
     [v1, op, v2] = _words(str, [], [])
     first = number(v1)
     second = number(v2)
+
     if op == '+' do
       first + second
     else
@@ -52,7 +55,7 @@ defmodule MyCharList do
   defp _words([], [], words), do: Enum.reverse(words)
 
   defp _words([], current, words) do
-    Enum.reverse [Enum.reverse(current) | words]
+    Enum.reverse([Enum.reverse(current) | words])
   end
 
   defp _words([head | tail], current, words) do
