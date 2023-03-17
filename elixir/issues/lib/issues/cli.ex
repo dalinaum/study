@@ -15,7 +15,8 @@ defmodule Issues.CLI do
   '{사용자명, 프로젝트명, 이슈 개수}' 또는 :help를 반환한다.
   """
   def parse_args(argv) do
-    OptionParser.parse(argv,
+    OptionParser.parse(
+      argv,
       switches: [help: :boolean],
       aliases: [h: :help]
     )
