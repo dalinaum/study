@@ -5,7 +5,9 @@ defmodule Issues.CLI do
   깃허브 프로젝트의 최근 _n_개 이슈를 표 형식으로 만들어 출력한다.
   """
   def run(argv) do
-    parse_args(argv)
+    argv
+    |> parse_args
+    |> process
   end
 
   @doc """
@@ -35,5 +37,33 @@ defmodule Issues.CLI do
   # 잘못된 인자 또는 --help
   def args_to_internal_representation(_) do
     :help
+  end
+
+  def process(:help) do
+    IO.puts("""
+    usage: issues <user> <project> [ count | #{@default_count} ]
+    """)
+
+    System.halt(0)
+  end
+
+  def process({user, project, _count}) do
+    Issues.GithubIssues.fetch(user, project)
+    |> decode_response()
+    |> sort_into_descending_order()
+  end
+
+  def decode_response({:ok, body}), do: body
+
+  def decode_response({:error, error}) do
+    IO.puts "Error fetching from Github: #{error["message"]}"
+    System.halt(2)
+  end
+
+  def sort_into_descending_order(list_of_issues) do
+    list_of_issues
+    |> Enum.sort(fn i1, i2 ->
+      i1["created_at"] >= i2["created_at"]
+    end)
   end
 end
