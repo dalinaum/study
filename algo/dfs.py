@@ -24,9 +24,9 @@ def iterative_dfs(v):
 
     while stack:
         v = stack.pop()
-        if v not in discovered:
-            discovered.append(v)
-            for w in graph[v]:
+        discovered.append(v)
+        for w in graph[v]:
+            if w not in discovered:
                 stack.append(w)
     return discovered
 
