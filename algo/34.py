@@ -22,25 +22,47 @@ class Solution:
         return result
 
 # 34ms 이게 훨씬 빠르네?!
+# class Solution:
+#     def permute(self, nums: List[int]) -> List[List[int]]:
+#         def dfs(permutaion: List[int] = []):
+#             if len(permutaion) == len(nums):
+#                 result.append(permutaion)
+#                 return
+
+#             for i in nums:
+#                 if i not in permutaion:
+#                     new_permutation = permutaion[:]
+#                     new_permutation.append(i)
+#                     dfs(new_permutation)
+      
+#         if not nums:
+#             return []
+        
+#         result = []
+#         dfs()
+#         return result
+
+# 40ms 책의 풀이. 완전히 생각도 못한 스타일. 내 풀이가 나은 듯.
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        def dfs(permutaion: List[int] = []):
-            if len(permutaion) == len(nums):
-                result.append(permutaion)
-                return
+        prev_elements: List[int] = []
+        result: List[List[int]] = []
 
-            for i in nums:
-                if i not in permutaion:
-                    new_permutation = permutaion[:]
-                    new_permutation.append(i)
-                    dfs(new_permutation)
-      
-        if not nums:
-            return []
+        def dfs(elements: List[int] = []):
+            if len(elements) == 0:
+                result.append(prev_elements[:])
+                return
+            
+            for i in elements:
+                next_elements = elements[:]
+                next_elements.remove(i)
+                prev_elements.append(i)
+                dfs(next_elements)
+                prev_elements.pop()
         
-        result = []
-        dfs()
+        dfs(nums)
         return result
+
 
 nums = [1,2,3]
 
