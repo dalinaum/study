@@ -23,6 +23,29 @@ class Solution:
 
 nums = [1,2,3]
 
+# 34ms 이게 훨씬 빠르네?!
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        def dfs(permutaion: List[int] = []):
+            if len(permutaion) == len(nums):
+                result.append(permutaion)
+                return
+
+            for i in nums:
+                if i not in permutaion:
+                    new_permutation = permutaion[:]
+                    new_permutation.append(i)
+                    dfs(new_permutation)
+      
+        if not nums:
+            return []
+        
+        result = []
+        dfs()
+        return result
+
+nums = [1,2,3]
+
 a = Solution()
 print(a.permute(nums))
 
