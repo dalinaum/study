@@ -21,8 +21,6 @@ class Solution:
         dfs()
         return result
 
-nums = [1,2,3]
-
 # 34ms 이게 훨씬 빠르네?!
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
