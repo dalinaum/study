@@ -1,6 +1,6 @@
 from typing import List
 
-# 73ms
+# 73ms 내 풀이
 # class Solution:
 #     def largestNumber(self, nums: List[int]) -> str:
 #         sorted: List[int] = []
@@ -19,7 +19,7 @@ from typing import List
 #     def has_to_swap(self, num1: int, num2: int) -> bool:
 #         return str(num1) + str(num2) < str(num2) + str(num1)
 
-# 75ms
+# 75ms 책의 풀이. 성능은 유사한 듯.
 class Solution:
     def largestNumber(self, nums: List[int]) -> str:
         for k in range(1, len(nums)):
