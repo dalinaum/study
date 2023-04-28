@@ -8,3 +8,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.message
+
+    def message_length(self):
+        return len(self.message)
+
+    message_length.short_description = "메시지 글자수"
+    #@property로 함수를 쓸 수 있지만 그 경우에는 short_description 어트리뷰트를 사용할 수 없다.
