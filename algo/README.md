@@ -23,4 +23,5 @@
  - 생각외로 쉬운 문제. 쫄지 말자.
 
 13. 펠린드럼 연결 리스트 (p201, 234)
+ - https://leetcode.com/problems/palindrome-linked-list
  - 러너를 이용하는 방법과 리스트를 이용한 방법 모두 생각해보자.
