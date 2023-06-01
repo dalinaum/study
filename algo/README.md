@@ -18,6 +18,9 @@
 11. 자신을 제외한 배열의 곱 (p193, 238)
  - https://leetcode.com/problems/product-of-array-except-self/description/
 
-12. 주식을 사고 팔기 가장 좋은 시점 (p195. 121)
+12. 주식을 사고 팔기 가장 좋은 시점 (p195, 121)
  - https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
  - 생각외로 쉬운 문제. 쫄지 말자.
+
+13. 펠린드럼 연결 리스트 (p201, 234)
+ - 러너를 이용하는 방법과 리스트를 이용한 방법 모두 생각해보자.
