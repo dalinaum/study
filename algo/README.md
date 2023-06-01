@@ -14,3 +14,6 @@
 10. 배열 파티션 (p190, 561)
  - https://leetcode.com/problems/array-partition/
  - min을 쓰지 않고 푸는 방법을 이해해야. (파이썬만 쓸 수 있는 슬라이스 방식도 있음.)
+
+11. 자신을 제외한 배열의 곱 (p193, 238)
+ - https://leetcode.com/problems/product-of-array-except-self/description/
