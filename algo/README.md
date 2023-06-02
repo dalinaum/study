@@ -25,3 +25,11 @@
 13. 펠린드럼 연결 리스트 (p201, 234)
  - https://leetcode.com/problems/palindrome-linked-list
  - 러너를 이용하는 방법과 리스트를 이용한 방법 모두 생각해보자.
+
+21. 중복 문자 제거 (p247, 316)
+ - https://leetcode.com/problems/remove-duplicate-letters/
+ - 재귀를 이용한 방법, 스택을 이용한 방법 다 해보자.
+
+22. 일일 온도 (p252. 739)
+ - https://leetcode.com/problems/daily-temperatures/
+ - 브루트 포스로 하면 안됨. 스택으로
