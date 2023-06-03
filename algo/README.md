@@ -50,3 +50,7 @@
 33. 전화 번호 문자 조합 (p338, 17)
  - https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/
  - DFS로 풀어야 함. 백트래킹 이해.
+
+37. 부분 집합 (p355, 78)
+ - https://leetcode.com/problems/subsets/description/
+ - 리턴부터 하고 시작하면 코드를 더 간결하게 할 수 있음.
