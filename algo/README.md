@@ -38,3 +38,7 @@
  - https://leetcode.com/problems/merge-k-sorted-lists/
  - 우선순위 큐 풀이 법 이해 필요. 파이썬와 코틀린 우선순위 큐 API 이해 필요. 파이썬에서는 중복된 값을 못 넣는다는 것 유념.
  - 리스트의 요소를 전부 풀어서 우선순위 큐에 넣지 않고 푸는 방법도 시도. Comparable 구현해야.
+
+30. 중복 문자 없는 가장 긴 부분 무자열 (p304, 3)
+ - https://leetcode.com/problems/longest-substring-without-repeating-characters/
+ - 투 포인터로 풀어야 함.
