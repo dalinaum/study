@@ -42,3 +42,8 @@
 30. 중복 문자 없는 가장 긴 부분 무자열 (p304, 3)
  - https://leetcode.com/problems/longest-substring-without-repeating-characters/
  - 투 포인터로 풀어야 함.
+
+32. 섬의 개수 (p331, 200)
+ - https://leetcode.com/problems/number-of-islands/
+ - DFS로 풀어야 함.
+
