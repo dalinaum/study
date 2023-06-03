@@ -4,7 +4,7 @@ class Solution {
     fun lengthOfLongestSubstring(s: String): Int {
         var left = 0
         val seen = mutableMapOf<Char, Int>()
-        var maxLength = Int.MIN_VALUE
+        var maxLength = 0
         for ((right, ch) in s.withIndex()) {
             if (seen.contains(ch) && seen.getValue(ch) >= left) {
                 left = seen.getValue(ch) + 1
