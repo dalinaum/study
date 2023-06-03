@@ -30,6 +30,11 @@
  - https://leetcode.com/problems/remove-duplicate-letters/
  - 재귀를 이용한 방법, 스택을 이용한 방법 다 해보자.
 
-22. 일일 온도 (p252. 739)
+22. 일일 온도 (p252, 739)
  - https://leetcode.com/problems/daily-temperatures/
  - 브루트 포스로 하면 안됨. 스택으로
+
+27. K개 정렬 리스트 병합 (p274, 23)
+ - https://leetcode.com/problems/merge-k-sorted-lists/
+ - 우선순위 큐 풀이 법 이해 필요. 파이썬와 코틀린 우선순위 큐 API 이해 필요. 파이썬에서는 중복된 값을 못 넣는다는 것 유념.
+ - 리스트의 요소를 전부 풀어서 우선순위 큐에 넣지 않고 푸는 방법도 시도. Comparable 구현해야.
