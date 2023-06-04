@@ -16,7 +16,7 @@
  - min을 쓰지 않고 푸는 방법을 이해해야. (파이썬만 쓸 수 있는 슬라이스 방식도 있음.)
 
 11. 자신을 제외한 배열의 곱 (p193, 238)
- - https://leetcode.com/problems/product-of-array-except-self/description/
+ - https://leetcode.com/problems/product-of-array-except-self/
 
 12. 주식을 사고 팔기 가장 좋은 시점 (p195, 121)
  - https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
@@ -48,9 +48,13 @@
  - DFS로 풀어야 함.
 
 33. 전화 번호 문자 조합 (p338, 17)
- - https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/
+ - https://leetcode.com/problems/letter-combinations-of-a-phone-number/
  - DFS로 풀어야 함. 백트래킹 이해.
 
 37. 부분 집합 (p355, 78)
- - https://leetcode.com/problems/subsets/description/
+ - https://leetcode.com/problems/subsets/
  - 리턴부터 하고 시작하면 코드를 더 간결하게 할 수 있음.
+
+38. 일정 재구성 (p357, 332)
+ - https://leetcode.com/problems/reconstruct-itinerary/
+ - 시작 경로 주의해야 함. append 시점 주의.
