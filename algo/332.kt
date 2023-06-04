@@ -17,7 +17,7 @@ class Solution {
         }
         visit("JFK")
 
-        return path
+        return path.reversed()
     }
 }
 
