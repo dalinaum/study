@@ -14,10 +14,38 @@ class TreeNode(var `val`: Int) {
     var right: TreeNode? = null
 }
 
+// 재귀 버전
+
+// class Solution {
+//     fun maxDepth(root: TreeNode?): Int {
+//         if (root == null) return 0
+//         return 1 + max(maxDepth(root.left), maxDepth(root.right))
+//     }
+// }
+
+// BFS 버전
+
 class Solution {
     fun maxDepth(root: TreeNode?): Int {
         if (root == null) return 0
-        return 1 + max(maxDepth(root.left), maxDepth(root.right))
+        val queue = mutableListOf<TreeNode>(root)
+
+        var depth = 0
+        while (queue.isNotEmpty()) {
+            depth += 1
+
+            val length = queue.size
+            for (i in 0 until(length)) {
+                val node = queue.removeAt(0)
+                if (node.left != null) {
+                    queue.add(node.left as TreeNode)
+                }
+                if (node.right != null) {
+                    queue.add(node.right as TreeNode)
+                }
+            }
+        }
+        return depth
     }
 }
 
