@@ -62,3 +62,7 @@
 39. 코스 스케쥴 (p364, 207)
  - https://leetcode.com/problems/course-schedule/
  - 가지 치기를 해야한다는 것을 인식하는게 중요.
+
+40. 네트워크 딜레이 타임 (p373, 743)
+ - https://leetcode.com/problems/network-delay-time/
+ - 데이크스트라 알고리즘을 적용해야.
