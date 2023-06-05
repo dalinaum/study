@@ -58,3 +58,7 @@
 38. 일정 재구성 (p357, 332)
  - https://leetcode.com/problems/reconstruct-itinerary/
  - 시작 경로 주의해야 함. append 시점 주의.
+
+39. 코스 스케쥴 (p364, 207)
+ - https://leetcode.com/problems/course-schedule/
+ - 가지 치기를 해야한다는 것을 인식하는게 중요.
