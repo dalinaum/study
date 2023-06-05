@@ -70,3 +70,7 @@
 41. K 경유지 내 가장 저렴한 항공권 (p379, 787)
  - https://leetcode.com/problems/cheapest-flights-within-k-stops/
  - 목적지에 가격을 찾으면 종료할 것. 가격 누적과 경유지를 카운트해서 더 싸거나 더 낮은 경유지만 업데이트하게. (타임 아웃 조심)
+
+42. 이진 트리의 최대 깊이 (p387, 104)
+ - https://leetcode.com/problems/maximum-depth-of-binary-tree/
+ - 재귀 버전은 생각했는데 BFS 버전도 생각해보기.
