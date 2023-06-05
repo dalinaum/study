@@ -66,3 +66,7 @@
 40. 네트워크 딜레이 타임 (p373, 743)
  - https://leetcode.com/problems/network-delay-time/
  - 데이크스트라 알고리즘을 적용해야.
+
+41. K 경유지 내 가장 저렴한 항공권 (p379, 787)
+ - https://leetcode.com/problems/cheapest-flights-within-k-stops/
+ - 데이스크트라를 쓰되 목적지 별 거리 계산 값을 저장하지 말것. (타임 오버). 목적지가 큐에서 나오면 종료할 것.
