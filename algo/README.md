@@ -90,3 +90,7 @@
 46. 두 이진 트리 병합 (p404, 617)
  - https://leetcode.com/problems/merge-two-binary-trees/
  - 문제를 잘 읽자.
+
+48. 균형 이진 트리 (p413, 110)
+ - https://leetcode.com/problems/balanced-binary-tree/
+ - 높이 계산에서 -1을 전달해서 실패를 전달하는 아이디어.
