@@ -94,3 +94,7 @@
 48. 균형 이진 트리 (p413, 110)
  - https://leetcode.com/problems/balanced-binary-tree/
  - 높이 계산에서 -1을 전달해서 실패를 전달하는 아이디어.
+
+49. 최소 높이 트리
+ - https://leetcode.com/problems/minimum-height-trees/
+ - 양방향이기 때문에 그래프에 값을 두개씩 넣어야 함. 값을 지워가며 평가.
