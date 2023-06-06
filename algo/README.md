@@ -78,3 +78,7 @@
 43. 이진 트리의 직경 (p390, 543)
  - https://leetcode.com/problems/diameter-of-binary-tree/
  - 루트까지 오지 않고 중간에 긴 경로가 만들어질 수 있다는 점을 유의. DFS로 풀어야.
+
+44. 가장 긴 동일 값의 경로 (p393, 687)
+ - https://leetcode.com/problems/longest-univalue-path/
+ - 중간 노드는 left와 right가 있지만 상위 노드는 하나만 연결될 수 있다는 것 주의. DFS
