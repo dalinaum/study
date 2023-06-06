@@ -86,3 +86,7 @@
 45. 이진 트리 반전 (p397, 226)
  - https://leetcode.com/problems/invert-binary-tree/
  - 재귀적인 방법 외에 DFS와 BFS 모두 풀이 해보자. DFS 후위 순회도 가능.
+
+46. 두 이진 트리 병합 (p404, 617)
+ - https://leetcode.com/problems/merge-two-binary-trees/
+ - 문제를 잘 읽자.
