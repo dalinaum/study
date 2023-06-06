@@ -81,4 +81,4 @@
 
 44. 가장 긴 동일 값의 경로 (p393, 687)
  - https://leetcode.com/problems/longest-univalue-path/
- - 중간 노드는 left와 right가 있지만 상위 노드는 하나만 연결될 수 있다는 것 주의. DFS
+ - 중간 노드는 left와 right가 있지만 상위 노드는 하나만 연결될 수 있다는 것 주의. DFS. 부모와 값이 같을 경우에는 1을 더해야 하지만 다를 경우 아예 0을 넣어야 한다는 것도 유의.
