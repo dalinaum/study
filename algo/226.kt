@@ -54,6 +54,30 @@ class TreeNode(var `val`: Int) {
 // }
 
 // DFS 풀이
+// class Solution {
+//     fun invertTree(root: TreeNode?): TreeNode? {
+//         if (root == null) return null
+
+//         val stack = mutableListOf<TreeNode?>()
+//         stack.add(root)
+
+//         while (stack.isNotEmpty()) {
+//             val node = stack.removeAt(stack.lastIndex)
+//             if (node == null) {
+//                 continue
+//             }
+//             val right = node.left
+//             val left = node.right
+//             node.left = left
+//             node.right = right
+//             stack.add(node.left)
+//             stack.add(node.right)
+//         }
+//         return root
+//     }
+// }
+
+// DFS 후위 순
 class Solution {
     fun invertTree(root: TreeNode?): TreeNode? {
         if (root == null) return null
@@ -66,12 +90,12 @@ class Solution {
             if (node == null) {
                 continue
             }
+            stack.add(node.left)
+            stack.add(node.right)
             val right = node.left
             val left = node.right
             node.left = left
             node.right = right
-            stack.add(node.left)
-            stack.add(node.right)
         }
         return root
     }
