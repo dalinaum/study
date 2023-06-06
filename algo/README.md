@@ -74,3 +74,7 @@
 42. 이진 트리의 최대 깊이 (p387, 104)
  - https://leetcode.com/problems/maximum-depth-of-binary-tree/
  - 재귀 버전은 생각했는데 BFS 버전도 생각해보기.
+
+43. 이진 트리의 직경 (p390, 543)
+ - https://leetcode.com/problems/diameter-of-binary-tree/
+ - 루트까지 오지 않고 중간에 긴 경로가 만들어질 수 있다는 점을 유의. DFS로 풀어야.
