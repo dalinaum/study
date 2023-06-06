@@ -95,10 +95,10 @@
  - https://leetcode.com/problems/balanced-binary-tree/
  - 높이 계산에서 -1을 전달해서 실패를 전달하는 아이디어.
 
-49. 최소 높이 트리
+49. 최소 높이 트리 (p416, 310)
  - https://leetcode.com/problems/minimum-height-trees/
  - 양방향이기 때문에 그래프에 값을 두개씩 넣어야 함. 값을 지워가며 평가.
 
-50. 정렬된 배열의 이진 탐색 트리 변환
+50. 정렬된 배열의 이진 탐색 트리 변환 (p425, 108)
  - https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
  - 이진 탐색을 할 때와 같은 방식으로 트리를 만듬.
