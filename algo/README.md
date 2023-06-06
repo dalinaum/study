@@ -104,5 +104,9 @@
  - 이진 탐색을 할 때와 같은 방식으로 트리를 만듬.
 
 51. 이진 탐색 트리(BST)를 더 큰 수 함계 트리로 (p428, 1038)
-- https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/
-- 오른쪽에서부터 중위 순회. 전역으로 누적 합을 가질 변수도 필요.
+ - https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/
+ - 오른쪽에서부터 중위 순회. 전역으로 누적 합을 가질 변수도 필요.
+
+52. 이진 탐색 트리(BST) 합의 범위 (p431. 938)
+ - https://leetcode.com/problems/range-sum-of-bst/
+ - 가지치기를 신경써야 함. BFS, DFS 풀이 모두 가능하니 생각해야함.
