@@ -123,6 +123,6 @@
  - https://leetcode.com/problems/kth-largest-element-in-an-array/
  - 정렬로 하는 풀이를 먼저 했음. 힙을 이용한 풀이도 생각해야.
 
-56. 트라이 구현 (p451, 208) - 리트코드에 서브밋해야. (리트코드 다운)
+56. 트라이 구현 (p451, 208)
  - https://leetcode.com/problems/implement-trie-prefix-tree/
  - 트라이를 맵으로 구현.
