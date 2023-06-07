@@ -114,3 +114,7 @@
 53. 이진 탐색 트리(BST) 노드 간 최소거리 (p435, 783)
  - https://leetcode.com/problems/minimum-distance-between-bst-nodes/
  - 중위 순회를 통해 처음부터 끝까지 순회하며 prev 값을 유지해야한다는 점 주의. 반복문으로 풀 수 있어야 함.
+
+54. 전위, 중위 순회 결과로 이진 트리 구축 (p444, 105)
+ - https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+ - 전위의 값을 순차적으로 가져와서 중위에서 분할 정복으로 해결해야.
