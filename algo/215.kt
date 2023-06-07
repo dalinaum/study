@@ -1,8 +1,27 @@
 // 정렬로 풀이
 
+// class Solution {
+//     fun findKthLargest(nums: IntArray, k: Int): Int {
+//         return nums.sorted()[nums.size - k]
+//     }
+// }
+
+data class Num(val value: Int) : Comparable<Num> {
+    override fun compareTo(other: Num): Int {
+        return compareValues(other.value, this.value)
+    }
+}
+
 class Solution {
     fun findKthLargest(nums: IntArray, k: Int): Int {
-        return nums.sorted()[nums.size - k]
+        val heapq = PriorityQueue<Num>()
+        for (num in nums) {
+            heapq.add(Num(num))
+        }
+        for (i in 1 until k) {
+            heapq.poll()
+        }
+        return heapq.poll().value
     }
 }
 
