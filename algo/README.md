@@ -118,3 +118,7 @@
 54. 전위, 중위 순회 결과로 이진 트리 구축 (p444, 105)
  - https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
  - 전위의 값을 순차적으로 가져와서 중위에서 분할 정복으로 해결해야.
+
+55. 배열의 K번째 큰 요소 (p456, 215)
+ - https://leetcode.com/problems/kth-largest-element-in-an-array/
+ - 정렬로 하는 풀이를 먼저 했음. 힙을 이용한 풀이도 생각해야.
