@@ -110,3 +110,7 @@
 52. 이진 탐색 트리(BST) 합의 범위 (p431. 938)
  - https://leetcode.com/problems/range-sum-of-bst/
  - 가지치기를 신경써야 함. BFS, DFS 풀이 모두 가능하니 생각해야함.
+
+53. 이진 탐색 트리(BST) 노드 간 최소거리 (p435, 783)
+ - https://leetcode.com/problems/minimum-distance-between-bst-nodes/
+ - 중위 순회를 통해 처음부터 끝까지 순회하며 prev 값을 유지해야한다는 점 주의. 반복문으로 풀 수 있어야 함.
