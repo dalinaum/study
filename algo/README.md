@@ -126,3 +126,7 @@
 56. 트라이 구현 (p451, 208)
  - https://leetcode.com/problems/implement-trie-prefix-tree/
  - 트라이를 맵으로 구현.
+
+57. 팰린드롬 페어 (p466, 336)
+ - https://leetcode.com/problems/palindrome-pairs/
+ - 코틀린으로 타임 오버를 해결하는데 실패. 거꾸로 트라이를 만들어야 한다는 점과 알고리즘만 이해하자.
