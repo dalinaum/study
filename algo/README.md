@@ -150,3 +150,7 @@
 63. 색 정렬 (p508, 75)
  - https://leetcode.com/problems/sort-colors/
  - 네덜란드 국기 문제 응용 풀이를 해야함.
+
+64. 원점에 K번째로 가까운 점 (p511, 973)
+ - https://leetcode.com/problems/k-closest-points-to-origin/
+ - 소트 대신에 힙큐도 이용하는 것을 생각해야.
