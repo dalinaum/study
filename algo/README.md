@@ -130,3 +130,8 @@
 57. 팰린드롬 페어 (p466, 336)
  - https://leetcode.com/problems/palindrome-pairs/
  - 코틀린으로 타임 오버를 해결하는데 실패. 거꾸로 트라이를 만들어야 한다는 점과 알고리즘만 이해하자.
+
+58. 리스트 정렬 (p489, 148)
+ - https://leetcode.com/problems/sort-list/
+ - 머지 소트를 해야함.
+
