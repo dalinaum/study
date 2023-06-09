@@ -135,3 +135,6 @@
  - https://leetcode.com/problems/sort-list/
  - 머지 소트를 해야함.
 
+59. 구간 병합 (p497, 56)
+ - https://leetcode.com/problems/merge-intervals/
+ - 경계를 유념해야 함.
