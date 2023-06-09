@@ -138,3 +138,7 @@
 59. 구간 병합 (p497, 56)
  - https://leetcode.com/problems/merge-intervals/
  - 경계를 유념해야 함.
+
+60. 삽입 정렬 리스트 (p500, 147)
+ - https://leetcode.com/problems/insertion-sort-list/
+ - 뒤에서부터 비교할 수 없는 것은 어쩔 수 없지만 항상 제일 앞부터 비교하지 말자.
