@@ -1,6 +1,19 @@
+// class Solution {
+//     fun isAnagram(s: String, t: String): Boolean {
+//         return s.toMutableList().sorted() == t.toMutableList().sorted()
+//     }
+// }
+
 class Solution {
     fun isAnagram(s: String, t: String): Boolean {
-        return s.toMutableList().sorted() == t.toMutableList().sorted()
+        val map = hashMapOf<Char, Int>()
+        for (ch in s) {
+            map[ch] = map.getOrDefault(ch, 0) + 1
+        }
+        for (ch in t) {
+            map[ch] = map.getOrDefault(ch, 0) - 1
+        }
+        return map.count { (ch, count) -> count != 0 } == 0
     }
 }
 
