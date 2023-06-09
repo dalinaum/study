@@ -142,3 +142,7 @@
 60. 삽입 정렬 리스트 (p500, 147)
  - https://leetcode.com/problems/insertion-sort-list/
  - 뒤에서부터 비교할 수 없는 것은 어쩔 수 없지만 항상 제일 앞부터 비교하지 말자.
+
+61. 가장 큰 수 (p504, 179)
+ - https://leetcode.com/problems/largest-number/
+ - 정렬을 할 때 문자열을 기준으로 해야한다는 것을 주의해야.
