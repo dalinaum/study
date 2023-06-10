@@ -154,3 +154,7 @@
 64. 원점에 K번째로 가까운 점 (p511, 973)
  - https://leetcode.com/problems/k-closest-points-to-origin/
  - 소트 대신에 힙큐도 이용하는 것을 생각해야.
+
+66. 회전 정렬된 배열 검색 (p525, 33)
+ - https://leetcode.com/problems/search-in-rotated-sorted-array/
+ - 이진 탐색으로 pivot을 찾는 것. 정렬하지 않고 이진 탐색으로 타겟을 찾는 것을 생각해봐야.
