@@ -170,3 +170,7 @@
 69. 2D 행렬 2 (p536, 240)
  - https://leetcode.com/problems/search-a-2d-matrix-ii/
  - 첫 번째 로우 마지막 컬럼에서, 이동하면서 확인하는 방법 + any 이용.
+
+70. 싱글 넘버 (p552, 136)
+ - https://leetcode.com/problems/single-number/
+ - XOR을 이용해서 값이 사라지지 않는 것을 찾음.
