@@ -166,3 +166,7 @@
 68. 두 수의 합 2 (p532, 167)
  - https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
  - 브루트 포스로 했는데 투 포인터와 이진 검색으로도 풀어야 함. 이진 검색의 범위에 유의.
+
+69. 2D 행렬 2 (p536, 240)
+ - https://leetcode.com/problems/search-a-2d-matrix-ii/
+ - 첫 번째 로우 마지막 컬럼에서, 이동하면서 확인하는 방법 + any 이용.
