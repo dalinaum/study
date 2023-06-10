@@ -162,3 +162,7 @@
 67. 두 배열의 교집합 (p529, 349)
  - https://leetcode.com/problems/intersection-of-two-arrays/
  - 한 쪽을 정렬하고 이진 탐색하거나, 양쪽 정렬하고 포인터를 진행시켜 찾음. 둘 다 알아야.
+
+68. 두 수의 합 2 (p532, 167)
+ - https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+ - 브루트 포스로 했는데 투 포인터와 이진 검색으로도 풀어야 함. 이진 검색의 범위에 유의.
