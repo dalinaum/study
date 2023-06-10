@@ -158,3 +158,7 @@
 66. 회전 정렬된 배열 검색 (p525, 33)
  - https://leetcode.com/problems/search-in-rotated-sorted-array/
  - 이진 탐색으로 pivot을 찾는 것. 정렬하지 않고 이진 탐색으로 타겟을 찾는 것을 생각해봐야.
+
+67. 두 배열의 교집합 (p529, 349)
+ - https://leetcode.com/problems/intersection-of-two-arrays/
+ - 한 쪽을 정렬하고 이진 탐색하거나, 양쪽 정렬하고 포인터를 진행시켜 찾음. 둘 다 알아야.
