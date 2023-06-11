@@ -178,3 +178,7 @@
 72. 두 정수의 합
  - https://leetcode.com/problems/sum-of-two-integers/
  - 전가산기를 제대로 구현하는 것도 중요하며, 자리수를 위해 문자열로 바꾸는 것도 방법, Int.toString(2)과 String.toInt(2)같은게 원하는 대로 동작하지 않는다는 점을 유의.
+
+74. 1비트의 개수
+ - https://leetcode.com/problems/number-of-1-bits/
+ - and로 1작은 값을 하는 방식으로 1의 갯수를 확인하는 방법도 알아야 함.
