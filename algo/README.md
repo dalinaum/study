@@ -174,3 +174,7 @@
 70. 싱글 넘버 (p552, 136)
  - https://leetcode.com/problems/single-number/
  - XOR을 이용해서 값이 사라지지 않는 것을 찾음.
+
+72. 두 정수의 합
+ - https://leetcode.com/problems/sum-of-two-integers/
+ - 전가산기를 제대로 구현하는 것도 중요하며, 자리수를 위해 문자열로 바꾸는 것도 방법, Int.toString(2)과 String.toInt(2)같은게 원하는 대로 동작하지 않는다는 점을 유의.
