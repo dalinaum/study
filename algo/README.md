@@ -182,3 +182,7 @@
 74. 1비트의 개수
  - https://leetcode.com/problems/number-of-1-bits/
  - and로 1작은 값을 하는 방식으로 1의 갯수를 확인하는 방법도 알아야 함.
+
+75. 최대 슬라이딩 윈도우
+ - https://leetcode.com/problems/sliding-window-maximum/
+ - 책의 풀이로 풀리지 않음. 데크를 통해 관리하고 의미없는 앞의 값 제거. 뒤의 값 중에 작은 값은 제거.
