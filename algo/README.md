@@ -190,3 +190,7 @@
 76. 부분 문자열이 포함된 최소 윈도우
  - https://leetcode.com/problems/minimum-window-substring/
  - missing 카운터과 need 맵, 투포인터로 풀이.
+
+77. 가장 긴 반복 문자 대체
+ - https://leetcode.com/problems/longest-repeating-character-replacement/
+ - right - left - max_char_length == k인 것을 찾아야함. 길이만 리턴하는 것이라서 최대 길이가 아니라도 교체하면 됨. left는 한번에 한번 땡기면 됨.
