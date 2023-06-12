@@ -194,3 +194,7 @@
 77. 가장 긴 반복 문자 대체
  - https://leetcode.com/problems/longest-repeating-character-replacement/
  - right - left - max_char_length == k인 것을 찾아야함. 길이만 리턴하는 것이라서 최대 길이가 아니라도 교체하면 됨. left는 한번에 한번 땡기면 됨.
+
+78. 주식을 사고팔기 가장 좋은 시점 2
+ - https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
+ - 이전 값 보다 큰 값만 체크하면 됨. 쉬운 문제
