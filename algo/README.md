@@ -198,3 +198,7 @@
 78. 주식을 사고팔기 가장 좋은 시점 2
  - https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
  - 이전 값 보다 큰 값만 체크하면 됨. 쉬운 문제
+
+79. 키에 따른 대기열 재구성
+ - https://leetcode.com/problems/queue-reconstruction-by-height/
+ - 우선순위 큐를 통해 키를 큰 순으로, 인덱스를 작은 순서대로 삽입하고 꺼냈을 때는 인덱스를 이용해서 삽입을 해야.
