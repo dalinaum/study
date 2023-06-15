@@ -206,3 +206,7 @@
 80. 태스크 스케쥴러 (p595, 621)
  - https://leetcode.com/problems/task-scheduler/
  - 카운트를 계산한 수, 우선순위 큐에서 한번에 n+1개씩 가져오고, 집계한 후, 카운트를 적게 해서 다시 집어넣는 방식으로 풀어야.
+
+81. 주유소 (p599, 134)
+ - https://leetcode.com/problems/gas-station/
+ - 답이 하나만 있기 때문에 출발할 수 있는지 체크하고 몇 스텝만 더 살펴보기.
