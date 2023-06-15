@@ -214,3 +214,7 @@
 82. 쿠키 부여 (p603, 455)
  - https://leetcode.com/problems/assign-cookies/
  - 소트 후. 두개의 포인터로 만족하는 것을 체크하는 방법. 소트후 이진 탐색으로 하나 큰 값의 인덱스를 찾고 그게 찾은 인원보다 크면 카운트.
+
+83. 과반수 엘리먼트 (p610, 169)
+ - https://leetcode.com/problems/majority-element/
+ - seen을 체크하는 방법, 분할 정복, 소트를 해서 중간을 찾는 법. (과반수라 가능) 방법등이 있음.
