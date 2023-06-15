@@ -175,30 +175,34 @@
  - https://leetcode.com/problems/single-number/
  - XOR을 이용해서 값이 사라지지 않는 것을 찾음.
 
-72. 두 정수의 합
+72. 두 정수의 합 (p555, 371)
  - https://leetcode.com/problems/sum-of-two-integers/
  - 전가산기를 제대로 구현하는 것도 중요하며, 자리수를 위해 문자열로 바꾸는 것도 방법, Int.toString(2)과 String.toInt(2)같은게 원하는 대로 동작하지 않는다는 점을 유의.
 
-74. 1비트의 개수
+74. 1비트의 개수 (p565, 191)
  - https://leetcode.com/problems/number-of-1-bits/
  - and로 1작은 값을 하는 방식으로 1의 갯수를 확인하는 방법도 알아야 함.
 
-75. 최대 슬라이딩 윈도우
+75. 최대 슬라이딩 윈도우 (p571, 239)
  - https://leetcode.com/problems/sliding-window-maximum/
  - 책의 풀이로 풀리지 않음. 데크를 통해 관리하고 의미없는 앞의 값 제거. 뒤의 값 중에 작은 값은 제거.
 
-76. 부분 문자열이 포함된 최소 윈도우
+76. 부분 문자열이 포함된 최소 윈도우 (p575. 575)
  - https://leetcode.com/problems/minimum-window-substring/
  - missing 카운터과 need 맵, 투포인터로 풀이.
 
-77. 가장 긴 반복 문자 대체
+77. 가장 긴 반복 문자 대체 (p581, 424)
  - https://leetcode.com/problems/longest-repeating-character-replacement/
  - right - left - max_char_length == k인 것을 찾아야함. 길이만 리턴하는 것이라서 최대 길이가 아니라도 교체하면 됨. left는 한번에 한번 땡기면 됨.
 
-78. 주식을 사고팔기 가장 좋은 시점 2
+78. 주식을 사고팔기 가장 좋은 시점 2 (p590, 122)
  - https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
  - 이전 값 보다 큰 값만 체크하면 됨. 쉬운 문제
 
-79. 키에 따른 대기열 재구성
+79. 키에 따른 대기열 재구성 (p593, 406)
  - https://leetcode.com/problems/queue-reconstruction-by-height/
  - 우선순위 큐를 통해 키를 큰 순으로, 인덱스를 작은 순서대로 삽입하고 꺼냈을 때는 인덱스를 이용해서 삽입을 해야.
+
+80. 태스크 스케쥴러 (p595, 621)
+ - https://leetcode.com/problems/task-scheduler/
+ - 카운트를 계산한 수, 우선순위 큐에서 한번에 n+1개씩 가져오고, 집계한 후, 카운트를 적게 해서 다시 집어넣는 방식으로 풀어야.
