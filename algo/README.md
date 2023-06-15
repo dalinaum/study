@@ -218,3 +218,7 @@
 83. 과반수 엘리먼트 (p610, 169)
  - https://leetcode.com/problems/majority-element/
  - seen을 체크하는 방법, 분할 정복, 소트를 해서 중간을 찾는 법. (과반수라 가능) 방법등이 있음.
+
+84. 괄호를 삽입하는 여러 가지 방법 (p616, 241)
+ - https://leetcode.com/problems/different-ways-to-add-parentheses/
+ - 분할 정복으로 풀어야 한다. 괄호를 기준으로 분할하고 결과를 합산.
