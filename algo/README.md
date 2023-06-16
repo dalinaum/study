@@ -222,3 +222,8 @@
 84. 괄호를 삽입하는 여러 가지 방법 (p616, 241)
  - https://leetcode.com/problems/different-ways-to-add-parentheses/
  - 분할 정복으로 풀어야 한다. 괄호를 기준으로 분할하고 결과를 합산.
+
+85. 피보나치 수열 (p627, 509)
+ - https://leetcode.com/problems/fibonacci-number/
+ - 메모이제이션 (하향식), 타블레이션 (상향식), 변수 둘만 쓰는 버전 모두 풀 수 있어야 함.
+
