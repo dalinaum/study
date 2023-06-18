@@ -227,3 +227,6 @@
  - https://leetcode.com/problems/fibonacci-number/
  - 메모이제이션 (하향식), 타블레이션 (상향식), 변수 둘만 쓰는 버전 모두 풀 수 있어야 함.
 
+86. 최대 서브 배열 (p636, 53)
+ - https://leetcode.com/problems/maximum-subarray/
+ - 책에는 메모이제이션이라고 적혀있지만 타뷸레이션인 듯. 처음부터 누적하며 더하다 이전 값이 0 이하면 새로 누적.
