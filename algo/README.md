@@ -234,3 +234,7 @@
 87. 계단 오르기 (p639, 70)
  - https://leetcode.com/problems/climbing-stairs/
  - 재귀로 풀수 있지만 타임 오버. (n-1, n-2에서 올라간 것을 합산.) 메모이제이션을 하면 됨.
+
+88. 집 도둑 (p642, 198)
+ - https://leetcode.com/problems/house-robber/
+ - i번째 집의 값을 (-1)과 (-2) + i의 값을 비교해서 큰 값으로 저장. 단순 재귀는 타임오버.
