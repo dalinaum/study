@@ -230,3 +230,7 @@
 86. 최대 서브 배열 (p636, 53)
  - https://leetcode.com/problems/maximum-subarray/
  - 책에는 메모이제이션이라고 적혀있지만 타뷸레이션인 듯. 처음부터 누적하며 더하다 이전 값이 0 이하면 새로 누적.
+
+87. 계단 오르기 (p639, 70)
+ - https://leetcode.com/problems/climbing-stairs/
+ - 재귀로 풀수 있지만 타임 오버. (n-1, n-2에서 올라간 것을 합산.) 메모이제이션을 하면 됨.
