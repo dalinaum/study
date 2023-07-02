@@ -36,6 +36,17 @@ function App() {
     console.log("컴포넌트 마운트")
   }, []);
 
+  useEffect(() => {
+    const intervalID = setInterval(() => {
+      console.log("깜빡");
+    }, 1000);
+
+    return () => {
+      console.log("클린업");
+      clearInterval(intervalID);
+    };
+  });
+
   return (
     <div className="App">
       <h1>Simple Counter</h1>
