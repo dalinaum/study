@@ -54,7 +54,6 @@ function App() {
 
   return (
     <div className="App">
-      <TestComp />
       <Header />
       <TodoEditor onCreate={onCreate} />
       <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete} />
