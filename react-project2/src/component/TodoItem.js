@@ -1,3 +1,4 @@
+import React from "react";
 import "./TodoItem.css"
 
 const TodoItem = ({
@@ -29,4 +30,4 @@ const TodoItem = ({
     );
 };
 
-export default TodoItem;
+export default React.memo(TodoItem);
