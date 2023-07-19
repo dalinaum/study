@@ -1,4 +1,4 @@
-import { useCallback, useReducer, useRef } from "react";
+import React, { useCallback, useReducer, useRef } from "react";
 import "./App.css";
 import Header from "./component/Header";
 import TodoEditor from "./component/TodoEditor";
@@ -47,6 +47,8 @@ function reducer(state, action) {
   }
 }
 
+export const TodoContext = React.createContext();
+
 function App() {
   const [todo, dispatch] = useReducer(reducer, mockTodo);
   const idRef = useRef(3);
@@ -81,8 +83,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <TodoEditor onCreate={onCreate} />
-      <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete} />
+      <TodoContext.Provider value={{ todo, onCreate, onUpdate, onDelete }}>
+        <TodoEditor />
+        <TodoList />
+      </TodoContext.Provider>
     </div>
   );
 }
