@@ -14,15 +14,6 @@ const Editor = ({ initData, onSubmit }) => {
         content: "",
     });
 
-    useEffect(() => {
-        if (initData) {
-            setState({
-                ...initData,
-                date: getFormattedDate(new Date(parseInt(initData.date)))
-            });
-        }
-    }, [initData]);
-
     const handleChangeDate = (e) => {
         setState({
             ...state,
@@ -51,6 +42,15 @@ const Editor = ({ initData, onSubmit }) => {
             emotionId,
         });
     };
+
+    useEffect(() => {
+        if (initData) {
+            setState({
+                ...initData,
+                date: getFormattedDate(new Date(parseInt(initData.date)))
+            });
+        }
+    }, [initData]);
 
     return (
         <div className="Editor">
