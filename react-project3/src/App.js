@@ -82,7 +82,7 @@ function App() {
     dispatch({
       type: "UPDATE",
       data: {
-        id: idRef.current,
+        id: targetId,
         date: new Date(date).getTime(),
         content,
         emotionId,
