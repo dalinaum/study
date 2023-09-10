@@ -42,7 +42,7 @@ SQLDelight를 쓰는 경우 코틀린 버전도 맞춰야 함.
 
 코틀린은 Unchecked excpetions이지만 Swift는 모두 Checked exceptions이니 `@Throws(Excpetion::class)`등의 어노테이션이 필요.
 
-````
+```
 How to fix “Initializer 'init(_:rowContent:)' requires that ‘SomeType’ conform to 'Identifiable’”
 ```
 
