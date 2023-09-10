@@ -39,8 +39,8 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 @Composable
 fun App() {
     MaterialTheme {
-        val birdesViewModel = getViewModel(Unit, viewModelFactory { BirdsViewModel() })
-        BirdsPage(birdesViewModel)
+        val birdsViewModel = getViewModel(Unit, viewModelFactory { BirdsViewModel() })
+        BirdsPage(birdsViewModel)
     }
 }
 
