@@ -15,15 +15,17 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const FirstPage(title: 'Flutter Demo Home Page'),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const FirstPage(),
+        '/second': (context) => const SecondPage()
+      },
     );
   }
 }
 
 class FirstPage extends StatefulWidget {
-  const FirstPage({super.key, required this.title});
-
-  final String title;
+  const FirstPage({super.key});
 
   @override
   State<FirstPage> createState() => _FirstPage();
@@ -41,8 +43,7 @@ class _FirstPage extends State<FirstPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const SecondPage()));
+          Navigator.of(context).pushNamed('/second');
         },
         child: const Icon(Icons.add),
       ),
