@@ -11,14 +11,12 @@ class FileApp extends StatefulWidget {
 }
 
 class _FileApp extends State<FileApp> {
-  var _count = 0;
   final List<String> _itemList = List.empty(growable: true);
   final _controller = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _readCountFile();
     _initData(DefaultAssetBundle.of(context));
   }
 
@@ -29,17 +27,37 @@ class _FileApp extends State<FileApp> {
         title: const Text('File Example'),
       ),
       body: Center(
-        child: Text(
-          '$_count',
-          style: const TextStyle(fontSize: 40),
+        child: Column(
+          children: [
+            TextField(
+              controller: _controller,
+              keyboardType: TextInputType.text,
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  return Card(
+                    child: Center(
+                      child: Text(
+                        _itemList[index],
+                        style: const TextStyle(fontSize: 30),
+                      ),
+                    ),
+                  );
+                },
+                itemCount: _itemList.length,
+              ),
+            )
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          final fruit = _controller.value.text;
+          _writeFruit(fruit);
           setState(() {
-            _count++;
+            _itemList.add(fruit);
           });
-          _writeCountFile(_count);
         },
         child: const Icon(Icons.add),
       ),
@@ -51,24 +69,6 @@ class _FileApp extends State<FileApp> {
     setState(() {
       _itemList.addAll(result);
     });
-  }
-
-  void _writeCountFile(int count) async {
-    final dir = await getApplicationDocumentsDirectory();
-    File('${dir.path}/count.txt').writeAsStringSync(count.toString());
-  }
-
-  void _readCountFile() async {
-    try {
-      final dir = await getApplicationDocumentsDirectory();
-      final string = File('${dir.path}/count.txt').readAsStringSync();
-      print(string);
-      setState(() {
-        _count = int.parse(string);
-      });
-    } catch (e) {
-      print(e.toString());
-    }
   }
 
   Future<List<String>> _readListFile(AssetBundle bundle) async {
@@ -98,5 +98,13 @@ class _FileApp extends State<FileApp> {
       }
       return itemList;
     }
+  }
+
+  void _writeFruit(String fruit) async {
+    final dir = await getApplicationDocumentsDirectory();
+    final fruitFile = File('${dir.path}/fruit.txt');
+    var fileContent = await fruitFile.readAsString();
+    fileContent += '\n$fruit';
+    fruitFile.writeAsStringSync(fileContent);
   }
 }
