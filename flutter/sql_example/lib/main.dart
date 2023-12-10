@@ -125,6 +125,33 @@ class _DatabaseApp extends State<DatabaseApp> {
                           );
                           _updateTodo(result);
                         },
+                        onLongPress: () async {
+                          final Todo? result = await showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: Text('${todo.id} : ${todo.title}'),
+                                content: Text('${todo.content}를 삭제하겠습니까?'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop(todo);
+                                    },
+                                    child: const Text('예'),
+                                  ),
+                                  TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: const Text("아니요")),
+                                ],
+                              );
+                            },
+                          );
+                          if (result != null) {
+                            _deleteTodo(result);
+                          }
+                        },
                       );
                     },
                     itemCount: (snapshot.data as List<Todo>).length,
@@ -153,7 +180,7 @@ class _DatabaseApp extends State<DatabaseApp> {
   }
 
   void _insertTodo(Todo todo) async {
-    final Database database = await widget.database;
+    final database = await widget.database;
     await database.insert('todos', todo.toMap(),
         conflictAlgorithm: ConflictAlgorithm.replace);
     setState(() {
@@ -176,13 +203,21 @@ class _DatabaseApp extends State<DatabaseApp> {
   }
 
   void _updateTodo(Todo todo) async {
-    final Database database = await widget.database;
+    final database = await widget.database;
     await database.update(
       'todos',
       todo.toMap(),
       where: 'id = ?',
       whereArgs: [todo.id],
     );
+    setState(() {
+      _todoList = _getTodos();
+    });
+  }
+
+  void _deleteTodo(Todo todo) async {
+    final database = await widget.database;
+    await database.delete('todos', where: 'id = ?', whereArgs: [todo.id]);
     setState(() {
       _todoList = _getTodos();
     });
