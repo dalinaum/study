@@ -80,14 +80,51 @@ class _DatabaseApp extends State<DatabaseApp> {
                   return ListView.builder(
                     itemBuilder: (context, index) {
                       final todo = (snapshot.data as List<Todo>)[index];
-                      return Card(
-                        child: Column(
+                      return ListTile(
+                        title: Text(
+                          todo.title,
+                          style: const TextStyle(fontSize: 20),
+                        ),
+                        subtitle: Column(
                           children: [
-                            Text(todo.title),
                             Text(todo.content),
-                            Text('${todo.active == 1}')
+                            Text('체크 : ${todo.active == 1 ? 'true' : 'false'}'),
+                            Container(
+                              height: 1,
+                              color: Colors.blue,
+                            )
                           ],
                         ),
+                        onTap: () async {
+                          final controller =
+                              TextEditingController(text: todo.content);
+
+                          final Todo result = await showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: Text('${todo.id} : ${todo.title}'),
+                                content: TextField(
+                                  controller: controller,
+                                  keyboardType: TextInputType.text,
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        todo.active = todo.active == 1 ? 0 : 1;
+                                        todo.content = controller.text;
+                                      });
+                                      Navigator.of(context).pop(todo);
+                                    },
+                                    child: const Text('예'),
+                                  )
+                                ],
+                              );
+                            },
+                          );
+                          _updateTodo(result);
+                        },
                       );
                     },
                     itemCount: (snapshot.data as List<Todo>).length,
@@ -135,6 +172,19 @@ class _DatabaseApp extends State<DatabaseApp> {
           content: row['content'].toString(),
           active: row['active'] ?? 0,
           id: row['id']);
+    });
+  }
+
+  void _updateTodo(Todo todo) async {
+    final Database database = await widget.database;
+    await database.update(
+      'todos',
+      todo.toMap(),
+      where: 'id = ?',
+      whereArgs: [todo.id],
+    );
+    setState(() {
+      _todoList = _getTodos();
     });
   }
 }
