@@ -179,16 +179,31 @@ class _DatabaseApp extends State<DatabaseApp> {
           future: _todoList,
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          final todo = await Navigator.of(context).pushNamed('/add');
-          if (todo != null) {
-            _insertTodo(todo as Todo);
-          }
-        },
-        child: const Icon(Icons.add),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () async {
+              final todo = await Navigator.of(context).pushNamed('/add');
+              if (todo != null) {
+                _insertTodo(todo as Todo);
+              }
+            },
+            heroTag: null,
+            child: const Icon(Icons.add),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          FloatingActionButton(
+            onPressed: () async {
+              _allUpdate();
+            },
+            heroTag: null,
+            child: const Icon(Icons.update),
+          ),
+        ],
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 
@@ -234,6 +249,14 @@ class _DatabaseApp extends State<DatabaseApp> {
   void _deleteTodo(Todo todo) async {
     final database = await widget.database;
     await database.delete('todos', where: 'id = ?', whereArgs: [todo.id]);
+    setState(() {
+      _todoList = _getTodos();
+    });
+  }
+
+  void _allUpdate() async {
+    final database = await widget.database;
+    await database.rawUpdate('update todos set active = 1 where active = 0');
     setState(() {
       _todoList = _getTodos();
     });
