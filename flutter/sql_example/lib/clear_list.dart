@@ -67,6 +67,37 @@ class _ClearListApp extends State<ClearListApp> {
           future: _clearList,
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          final result = await showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: const Text('완료한 일 삭제'),
+                content: const Text('완료한 일을 모두 삭제할까요?'),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop(true);
+                    },
+                    child: const Text('예'),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop(false);
+                    },
+                    child: const Text('아니요'),
+                  ),
+                ],
+              );
+            },
+          );
+          if (result) {
+            _removeAllTodos();
+          }
+        },
+        child: const Icon(Icons.remove),
+      ),
     );
   }
 
@@ -75,7 +106,6 @@ class _ClearListApp extends State<ClearListApp> {
     List<Map<String, dynamic>> maps = await database.rawQuery(
         'select title, content, id, active from todos where active=1');
 
-    print("maps: ${maps}");
     return List.generate(maps.length, (i) {
       final map = maps[i];
       var todo = Todo(
@@ -84,6 +114,14 @@ class _ClearListApp extends State<ClearListApp> {
           id: map['id'],
           active: map['active']);
       return todo;
+    });
+  }
+
+  void _removeAllTodos() async {
+    final database = await widget.database;
+    database.rawDelete('delete from todos where active=1');
+    setState(() {
+      _clearList = _getClearList();
     });
   }
 }
