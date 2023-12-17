@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqlite_api.dart';
+
 import 'todo.dart';
 
 class ClearListApp extends StatefulWidget {
@@ -71,8 +72,8 @@ class _ClearListApp extends State<ClearListApp> {
 
   Future<List<Todo>> _getClearList() async {
     final Database database = await widget.database;
-    List<Map<String, dynamic>> maps = await database
-        .rawQuery('select title, content, id, active from todos where active=1');
+    List<Map<String, dynamic>> maps = await database.rawQuery(
+        'select title, content, id, active from todos where active=1');
 
     print("maps: ${maps}");
     return List.generate(maps.length, (i) {

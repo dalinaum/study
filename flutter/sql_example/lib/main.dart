@@ -3,8 +3,8 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 import 'add_todo.dart';
-import 'todo.dart';
 import 'clear_list.dart';
+import 'todo.dart';
 
 void main() {
   runApp(const MyApp());
