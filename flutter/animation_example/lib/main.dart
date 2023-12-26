@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'person.dart';
+import 'second_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -130,12 +131,29 @@ class _AnimationApp extends State<AnimationApp> {
               child: const Text('이전'),
             ),
             ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    _opacity == 1 ? _opacity = 0 : _opacity = 1;
+                  });
+                },
+                child: const Text('사라지기')),
+            ElevatedButton(
               onPressed: () {
-                setState(() {
-                  _opacity == 1 ? _opacity = 0 : _opacity = 1;
-                });
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const SecondPage()));
               },
-              child: const Text('사라지기')
+              child: const SizedBox(
+                width: 200,
+                child: Row(
+                  children: [
+                    Hero(
+                      tag: 'detail',
+                      child: Icon(Icons.cake),
+                    ),
+                    Text('이동하기'),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
