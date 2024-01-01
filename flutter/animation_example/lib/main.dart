@@ -1,3 +1,4 @@
+import 'package:animation_example/intro_page.dart';
 import 'package:flutter/material.dart';
 
 import 'person.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const AnimationApp(),
+      home: const IntroPage(),
     );
   }
 }
