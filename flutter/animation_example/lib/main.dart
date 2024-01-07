@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'person.dart';
 import 'second_page.dart';
+import 'sliver_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -140,8 +141,11 @@ class _AnimationApp extends State<AnimationApp> {
                 child: const Text('사라지기')),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const SecondPage()));
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SecondPage(),
+                  ),
+                );
               },
               child: const SizedBox(
                 width: 200,
@@ -155,6 +159,16 @@ class _AnimationApp extends State<AnimationApp> {
                   ],
                 ),
               ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const SliverPage(),
+                  ),
+                );
+              },
+              child: const Text('페이지 이동'),
             ),
           ],
         ),
