@@ -1,0 +1,13 @@
+syntax="proto3";
+package pb;
+import "rpc_signup.proto";
+import "rpc_login.proto";
+import "rpc_get_user.proto";
+import "empty_request.proto";
+option go_package="github.com/dalinaum/grpc-server/pb";
+
+service GrpcServerService {
+    rpc SignUp(SignupRequestMessage) returns (SignupResponseMessage) {};
+    rpc Login(LoginRequestMessage) returns (LoginResponseMessage) {};
+    rpc GetUser(EmptyRequestMessage) returns (GetUserResponse) {};
+}
