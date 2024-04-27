@@ -1,0 +1,22 @@
+name: flutter_application
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.3.0-181.0.dev <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  grpc: ^3.2.4
+  protobuf: ^3.1.0
+  shared_preferences: ^2.2.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
