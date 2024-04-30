@@ -4,6 +4,8 @@ go install google.golang.org/protobuf/cmd/protoc-gen-go-grpc@latest
 ```
 
 ```
+evans --host localhost --port 9090 -r repl
+
 $ show package
 +-------------------------+
 |         PACKAGE         |
@@ -25,4 +27,37 @@ $ show service
 
 $ service GrpcServerService
 $ show service
+```
+
+```
+$ package pb
+$ service GrpcServerService
+$ call GetNotifications
+```
+
+```
+$ package pb
+$ service GrpcServerService
+$ call SignUp
+```
+
+```
+$ mongosh
+use admin
+db.adminCommand(
+   {
+      shutdown: 1,
+      comment: "Convert to cluster"
+   }
+)```
+
+```
+$ mongod --port 27017 --dbpath /opt/homebrew/var/mongodb --replSet rs0 --bind_ip localhost
+```
+
+Re-run mongo service.
+
+```sh
+$ mongosh
+rs.initiate()
 ```
