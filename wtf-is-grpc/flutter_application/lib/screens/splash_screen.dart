@@ -6,6 +6,7 @@ import 'package:flutter_application/screens/home_screen.dart';
 import 'package:flutter_application/screens/login.dart';
 import 'package:flutter_application/services/auth.dart';
 import 'package:flutter_application/services/grpc_services.dart';
+import 'package:flutter_application/services/notification.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -62,6 +63,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> initAsync() async {
     try {
+      await NotificationServices.initializeService();
       final isAuth = await AuthService.isAuthAvailable();
       if (isAuth) {
         final user = await AuthService.getUser();
