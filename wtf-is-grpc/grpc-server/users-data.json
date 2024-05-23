@@ -1,0 +1,281 @@
+[{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847e1"
+  },
+  "username": "ironman",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Tony Stark"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847e2"
+  },
+  "username": "spiderman",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Peter Parker"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847e3"
+  },
+  "username": "thor",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Thor Odinson"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847e4"
+  },
+  "username": "blackwidow",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Natasha Romanoff"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847e5"
+  },
+  "username": "captainamerica",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Steve Rogers"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847e6"
+  },
+  "username": "hulk",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Bruce Banner"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847e7"
+  },
+  "username": "blackpanther",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "T'Challa"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847e8"
+  },
+  "username": "doctorstrange",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Stephen Strange"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847e9"
+  },
+  "username": "scarletwitch",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Wanda Maximoff"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847ea"
+  },
+  "username": "antman",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Scott Lang"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847eb"
+  },
+  "username": "wolverine",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Logan"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847ec"
+  },
+  "username": "hawkeye",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Clint Barton"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847ed"
+  },
+  "username": "vision",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Vision"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847ee"
+  },
+  "username": "thanos",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Thanos"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847ef"
+  },
+  "username": "loki",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Loki"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847f0"
+  },
+  "username": "groot",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Groot"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847f1"
+  },
+  "username": "rocket",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Rocket Raccoon"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847f2"
+  },
+  "username": "gamora",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Gamora"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847f3"
+  },
+  "username": "starlord",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Star-Lord"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847f4"
+  },
+  "username": "drax",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Drax the Destroyer"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847f5"
+  },
+  "username": "spiderwoman",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Jessica Drew"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847f6"
+  },
+  "username": "blackbolt",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Black Bolt"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847f7"
+  },
+  "username": "medusa",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Medusa"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847f8"
+  },
+  "username": "lockjaw",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Lockjaw"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847f9"
+  },
+  "username": "marvelous",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Marvelous"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847fa"
+  },
+  "username": "storm",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Ororo Munroe"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847fb"
+  },
+  "username": "cyclops",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Scott Summers"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847fc"
+  },
+  "username": "professorx",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Charles Xavier"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847fd"
+  },
+  "username": "beast",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Hank McCoy"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847fe"
+  },
+  "username": "jeangrey",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Jean Grey"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d03847ff"
+  },
+  "username": "rogue",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Rogue"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d0384800"
+  },
+  "username": "gambit",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Remy LeBeau"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d0384801"
+  },
+  "username": "deadpool",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Wade Wilson"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d0384802"
+  },
+  "username": "colossus",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Piotr Rasputin"
+},
+{
+  "_id": {
+    "$oid": "650434bb59e7b976d0384803"
+  },
+  "username": "nightcrawler",
+  "password": "$2a$10$TD5D/OngRwqCmu3RflXiN.Ut0/xyNerjGduaJDfdjKSTJs3.tywG6",
+  "name": "Kurt Wagner"
+}
+]

@@ -1,0 +1,2 @@
+#!/bin/bash
+evans --host localhost --port 9090 -r repl --header="Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInVzZXJuYW1lIjoic3BpZGVybWFuIiwiaXNzdWVkX2F0IjoiMjAyNC0wNS0yNFQwMjoyODozMi4xNzQyNDkrMDk6MDAiLCJleHBpcmVkX2F0IjoiMjAyNC0wNS0yNFQxMjoyODozMi4xNzQyNDkrMDk6MDAifQ.ARju6eumQRgClBv8JrlECS4wSZ6195g9_4awYlJnotU"

@@ -51,7 +51,7 @@ db.adminCommand(
    }
 )```
 
-```
+```sh
 $ mongod --port 27017 --dbpath /opt/homebrew/var/mongodb --replSet rs0 --bind_ip localhost
 ```
 
@@ -60,4 +60,8 @@ Re-run mongo service.
 ```sh
 $ mongosh
 rs.initiate()
+```
+
+```sh
+mongoimport --jsonArray --collection users --type json --file users-data.json
 ```

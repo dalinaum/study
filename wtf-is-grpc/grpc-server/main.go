@@ -28,6 +28,7 @@ func main() {
 	}
 	conn := db.MongoCollections{
 		Users: database.Collection("users"),
+		Chats: database.Collection("chats"),
 	}
 	// Start the gRPC server
 	runGrpcServer(config, conn)
@@ -56,7 +57,8 @@ func runGrpcServer(config utils.ViperConfig, collection db.MongoCollections) {
 	}
 
 	grpcServer := grpc.NewServer(
-		grpc.UnaryInterceptor(server.AuthInterceptor),
+		grpc.UnaryInterceptor(server.UnaryAuthInterceptor),
+		grpc.StreamInterceptor(server.StreamAuthInterceptor),
 	)
 	pb.RegisterGrpcServerServiceServer(grpcServer, server)
 

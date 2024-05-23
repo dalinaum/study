@@ -2,6 +2,7 @@ package gapi
 
 import (
 	"fmt"
+	"sync"
 
 	"github.com/dalinaum/grpc-server/db"
 	"github.com/dalinaum/grpc-server/pb"
@@ -11,9 +12,12 @@ import (
 
 type Server struct {
 	pb.GrpcServerServiceServer
+	clients       map[string]pb.GrpcServerService_SendMessageServer
+	mu            sync.Mutex
 	config        utils.ViperConfig
 	dbCollections db.MongoCollections
-	tokenMaker    token.Maker
+
+	tokenMaker token.Maker
 }
 
 func NewServer(config utils.ViperConfig, dbCollection db.MongoCollections) (*Server, error) {
