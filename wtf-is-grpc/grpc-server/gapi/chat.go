@@ -94,7 +94,7 @@ func (server *Server) SendMessage(stream pb.GrpcServerService_SendMessageServer)
 				continue
 			}
 
-			// Forward the message to receiver.
+			// Forward the message to the receiver.
 			err = receiver.Send(&pb.Message{
 				Sender:    payload.Username,
 				Receiver:  message.Receiver,
@@ -129,7 +129,7 @@ func (server *Server) SendMessage(stream pb.GrpcServerService_SendMessageServer)
 	return nil
 }
 
-// GetAllMessage retrieve all messages for a user.
+// GetAllMessage retrieves all messages for a user.
 func (server *Server) GetAllMessage(ctx context.Context, req *pb.GetAllMessageRequest) (*pb.GetAllMessageResponse, error) {
 	// Extract the user payload from the context.
 	payload, ok := ctx.Value(payloadHeader).(*token.Payload)
