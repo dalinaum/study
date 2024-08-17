@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
         context: context,
         builder: (builder) {
           return AlertDialog(
-            title: const Text("Add serer address"),
+            title: const Text("Add server address"),
             content: TextFormField(
               initialValue: GrpcService.host,
               decoration: const InputDecoration(
