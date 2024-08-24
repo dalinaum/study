@@ -16,10 +16,12 @@ import 'package:grpc/service_api.dart' as $grpc;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'empty_request.pb.dart' as $2;
+import 'rpc_chat.pb.dart' as $6;
 import 'rpc_get_user.pb.dart' as $3;
 import 'rpc_login.pb.dart' as $1;
 import 'rpc_notifications.pb.dart' as $4;
 import 'rpc_signup.pb.dart' as $0;
+import 'rpc_users.pb.dart' as $5;
 
 export 'rpc_services.pb.dart';
 
@@ -41,6 +43,18 @@ class GrpcServerServiceClient extends $grpc.Client {
       '/pb.GrpcServerService/GetNotifications',
       ($2.EmptyRequestMessage value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $4.NotificationMessage.fromBuffer(value));
+  static final _$getUsers = $grpc.ClientMethod<$5.UsersListRequest, $5.ListUserMessage>(
+      '/pb.GrpcServerService/GetUsers',
+      ($5.UsersListRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $5.ListUserMessage.fromBuffer(value));
+  static final _$sendMessage = $grpc.ClientMethod<$6.SendMessageRequest, $6.Message>(
+      '/pb.GrpcServerService/SendMessage',
+      ($6.SendMessageRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $6.Message.fromBuffer(value));
+  static final _$getAllMessage = $grpc.ClientMethod<$6.GetAllMessageRequest, $6.GetAllMessageResponse>(
+      '/pb.GrpcServerService/GetAllMessage',
+      ($6.GetAllMessageRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $6.GetAllMessageResponse.fromBuffer(value));
 
   GrpcServerServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -62,6 +76,18 @@ class GrpcServerServiceClient extends $grpc.Client {
 
   $grpc.ResponseStream<$4.NotificationMessage> getNotifications($2.EmptyRequestMessage request, {$grpc.CallOptions? options}) {
     return $createStreamingCall(_$getNotifications, $async.Stream.fromIterable([request]), options: options);
+  }
+
+  $grpc.ResponseFuture<$5.ListUserMessage> getUsers($5.UsersListRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getUsers, request, options: options);
+  }
+
+  $grpc.ResponseStream<$6.Message> sendMessage($async.Stream<$6.SendMessageRequest> request, {$grpc.CallOptions? options}) {
+    return $createStreamingCall(_$sendMessage, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$6.GetAllMessageResponse> getAllMessage($6.GetAllMessageRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getAllMessage, request, options: options);
   }
 }
 
@@ -98,6 +124,27 @@ abstract class GrpcServerServiceBase extends $grpc.Service {
         true,
         ($core.List<$core.int> value) => $2.EmptyRequestMessage.fromBuffer(value),
         ($4.NotificationMessage value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$5.UsersListRequest, $5.ListUserMessage>(
+        'GetUsers',
+        getUsers_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $5.UsersListRequest.fromBuffer(value),
+        ($5.ListUserMessage value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$6.SendMessageRequest, $6.Message>(
+        'SendMessage',
+        sendMessage,
+        true,
+        true,
+        ($core.List<$core.int> value) => $6.SendMessageRequest.fromBuffer(value),
+        ($6.Message value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$6.GetAllMessageRequest, $6.GetAllMessageResponse>(
+        'GetAllMessage',
+        getAllMessage_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $6.GetAllMessageRequest.fromBuffer(value),
+        ($6.GetAllMessageResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.SignupResponseMessage> signUp_Pre($grpc.ServiceCall call, $async.Future<$0.SignupRequestMessage> request) async {
@@ -116,8 +163,19 @@ abstract class GrpcServerServiceBase extends $grpc.Service {
     yield* getNotifications(call, await request);
   }
 
+  $async.Future<$5.ListUserMessage> getUsers_Pre($grpc.ServiceCall call, $async.Future<$5.UsersListRequest> request) async {
+    return getUsers(call, await request);
+  }
+
+  $async.Future<$6.GetAllMessageResponse> getAllMessage_Pre($grpc.ServiceCall call, $async.Future<$6.GetAllMessageRequest> request) async {
+    return getAllMessage(call, await request);
+  }
+
   $async.Future<$0.SignupResponseMessage> signUp($grpc.ServiceCall call, $0.SignupRequestMessage request);
   $async.Future<$1.LoginResponseMessage> login($grpc.ServiceCall call, $1.LoginRequestMessage request);
   $async.Future<$3.GetUserResponse> getUser($grpc.ServiceCall call, $2.EmptyRequestMessage request);
   $async.Stream<$4.NotificationMessage> getNotifications($grpc.ServiceCall call, $2.EmptyRequestMessage request);
+  $async.Future<$5.ListUserMessage> getUsers($grpc.ServiceCall call, $5.UsersListRequest request);
+  $async.Stream<$6.Message> sendMessage($grpc.ServiceCall call, $async.Stream<$6.SendMessageRequest> request);
+  $async.Future<$6.GetAllMessageResponse> getAllMessage($grpc.ServiceCall call, $6.GetAllMessageRequest request);
 }

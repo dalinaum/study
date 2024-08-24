@@ -5,6 +5,9 @@ import "rpc_login.proto";
 import "rpc_get_user.proto";
 import "rpc_notifications.proto";
 import "empty_request.proto";
+import "rpc_users.proto";
+import "rpc_chat.proto";
+
 option go_package="github.com/dalinaum/grpc-server/pb";
 
 service GrpcServerService {
@@ -12,4 +15,7 @@ service GrpcServerService {
     rpc Login(LoginRequestMessage) returns (LoginResponseMessage) {}
     rpc GetUser(EmptyRequestMessage) returns (GetUserResponse) {}
     rpc GetNotifications(EmptyRequestMessage) returns (stream NotificationMessage) {}
+    rpc GetUsers(UsersListRequest) returns (ListUserMessage) {}
+    rpc SendMessage(stream SendMessageRequest) returns (stream Message){}
+    rpc GetAllMessage(GetAllMessageRequest) returns (GetAllMessageResponse){}
 }
