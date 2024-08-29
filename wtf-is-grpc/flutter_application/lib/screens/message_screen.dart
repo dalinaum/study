@@ -48,7 +48,11 @@ class _MessageScreenState extends State<MessageScreen> {
       if (value.sender != "Server") {
         messages.add(value);
         setState(() {});
-        scrollDown();
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (scrollController.hasClients) {
+            scrollDown();
+          }
+        });
       } else {
         if (value.message.contains("has joined the room.")) {
           if (mounted) {
@@ -79,8 +83,12 @@ class _MessageScreenState extends State<MessageScreen> {
       addMessage(messageText);
 
       controller.clear();
-      scrollDown();
       setState(() {});
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (scrollController.hasClients) {
+          scrollDown();
+        }
+      });
     }
   }
 
@@ -101,6 +109,11 @@ class _MessageScreenState extends State<MessageScreen> {
     } finally {
       setState(() {
         isLoading = false;
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (scrollController.hasClients) {
+            scrollDown();
+          }
+        });
       });
     }
   }
@@ -116,7 +129,7 @@ class _MessageScreenState extends State<MessageScreen> {
   void scrollDown() {
     scrollController.animateTo(
       scrollController.position.maxScrollExtent,
-      duration: const Duration(seconds: 2),
+      duration: const Duration(milliseconds: 500),
       curve: Curves.fastOutSlowIn,
     );
   }
