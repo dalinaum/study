@@ -78,3 +78,13 @@ rs.initiate()
 ```sh
 mongoimport --jsonArray --collection users --type json --file users-data.json
 ```
+(데이터가 깨져서 새로 가져와야 함.)
+
+테이블 삭제
+```sh
+db.getMongo().getDBNames()
+use grpc
+db.dropAllUsers()
+db.dropAllRoles()
+db.dropDatabase()
+```
