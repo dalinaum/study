@@ -19,7 +19,9 @@ import (
 func (server *Server) SendMessage(stream pb.GrpcServerService_SendMessageServer) error {
 	// Extract the user payload from the context.
 	payload, ok := stream.Context().Value(payloadHeader).(*token.Payload)
+	fmt.Printf("payload: %v\n", payload)
 	if !ok {
+		fmt.Println("Missing required token")
 		return status.Errorf(codes.Internal, "missing required token")
 	}
 
@@ -28,17 +30,22 @@ func (server *Server) SendMessage(stream pb.GrpcServerService_SendMessageServer)
 	if server.clients == nil {
 		server.clients = make(map[string]pb.GrpcServerService_SendMessageServer)
 	}
+	fmt.Printf("join stream: %v\n", payload.Username)
 	server.clients[payload.Username] = stream
 	server.mu.Unlock()
 
 	// Continously receive and forward messages.
 	for {
 		message, err := stream.Recv()
+		fmt.Printf("username: %v\nmessage: %v\n", payload.Username, message)
+
 		if err == io.EOF {
+			fmt.Printf("Stream is over. : %v\n", payload.Username)
 			// The client has closed the connection.
 			break
 		}
 		if err != nil {
+			fmt.Printf("Error occured. : %v %v\n", payload.Username, err)
 			return status.Errorf(codes.Internal, "Error receiving message: %v", err)
 		}
 
@@ -119,6 +126,7 @@ func (server *Server) SendMessage(stream pb.GrpcServerService_SendMessageServer)
 		}
 	}
 
+	fmt.Printf("%v disconnect.\n", payload.Username)
 	// Remove the sender from the clients map when the client disconnects.
 	server.mu.Lock()
 	delete(server.clients, payload.Username)
