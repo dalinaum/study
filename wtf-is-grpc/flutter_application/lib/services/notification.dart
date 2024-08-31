@@ -122,9 +122,14 @@ class NotificationServices {
   static Stream<NotificationMessage> getNotification() async* {
     final request = EmptyRequestMessage();
     final responseStream = GrpcService.client.getNotifications(request);
-    await for (var notification in responseStream) {
-      // Yield each received NotificationMessage.
-      yield notification;
+    try {
+      await for (var notification in responseStream) {
+        // Yield each received NotificationMessage.
+        yield notification;
+      }
+    } catch (error) {
+      // Handle the GrpcError here.
+      print('GrpcError: $error');
     }
   }
 }
