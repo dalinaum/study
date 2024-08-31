@@ -1,0 +1,20 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "my electron first app",
+  "main": "build/main.js",
+  "scripts": {
+    "tailwindcss": "tailwindcss -i input.css -o build/output.css",
+    "compile": "tsc && copyfiles -f index.html build",
+    "start": "npm run tailwindcss && npm run compile && electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dalinaum",
+  "license": "MIT",
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "electron": "^32.0.1",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.5.4"
+  }
+}
