@@ -63,6 +63,11 @@ dependencies {
     implementation(platform(libs.supabase.bom))
     implementation(libs.supabase.postgrest.kt)
     implementation(libs.ktor.client.android)
+    implementation(libs.androidx.credentials.core)
+    implementation(libs.google.id)
+    // optional - needed for credentials support from play services, for devices running
+    // Android 13 and below.
+    implementation(libs.androidx.credentials.legacy)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
