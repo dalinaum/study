@@ -1,52 +1,60 @@
 package io.github.dalinaum.sburrestdemo
 
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 
 @RestController
 @RequestMapping("/coffees")
-class RestApiDemoController {
-    private val coffees = mutableListOf<Coffee>()
+class RestApiDemoController(private val coffeeRepository: CoffeeRepository) {
+//    private val coffees = mutableListOf<Coffee>()
 
     init {
-        coffees.addAll(
+//        coffees.addAll(
+//            listOf(
+//                Coffee(name = "Café Cereza"),
+//                Coffee(name = "Café Ganador"),
+//                Coffee(name = "Café Lareno"),
+//                Coffee(name = "Café Três Pontas"),
+//            )
+//        )
+        coffeeRepository.saveAll(
             listOf(
-                Coffee(name = "Café Cereza"),
-                Coffee(name = "Café Ganador"),
-                Coffee(name = "Café Lareno"),
-                Coffee(name = "Café Três Pontas"),
+                Coffee("Café Cereza"),
+                Coffee("Café Ganador"),
+                Coffee("Café Lareno"),
+                Coffee("Café Três Pontas"),
             )
         )
     }
 
     @GetMapping
-    fun getCoffees(): List<Coffee> {
-        return coffees
+    fun getCoffees(): Iterable<Coffee> {
+        return coffeeRepository.findAll()
     }
 
     @GetMapping("/{id}")
     fun getCoffeeById(@PathVariable id: String): Coffee? {
-        return coffees.find { it.id == id }
+        return coffeeRepository.findById(id).orElse(null)
     }
 
     @PostMapping
     fun postCoffee(@RequestBody coffee: Coffee): Coffee {
-        coffees.add(coffee)
-        return coffee
+        return coffeeRepository.save(coffee)
     }
 
     @PutMapping("/{id}")
-    fun putCoffee(@PathVariable id: String, @RequestBody coffee: Coffee): Coffee {
-        val index = coffees.indexOfFirst { it.id == id }
-        if (index == -1) {
-            return postCoffee(coffee)
+    fun putCoffee(@PathVariable id: String, @RequestBody coffee: Coffee): ResponseEntity<Coffee> {
+        return if (!coffeeRepository.existsById(id)) {
+            ResponseEntity(coffeeRepository.save(coffee), HttpStatus.CREATED)
+        } else {
+            ResponseEntity(coffeeRepository.save(coffee), HttpStatus.OK)
         }
-        coffees[index] = coffee
-        return coffee
     }
 
     @DeleteMapping("/{id}")
     fun deleteCoffee(@PathVariable id: String) {
-        coffees.removeIf { it.id == id }
+        coffeeRepository.deleteById(id)
     }
 }
