@@ -8,26 +8,6 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/coffees")
 class RestApiDemoController(private val coffeeRepository: CoffeeRepository) {
-//    private val coffees = mutableListOf<Coffee>()
-
-    init {
-//        coffees.addAll(
-//            listOf(
-//                Coffee(name = "Café Cereza"),
-//                Coffee(name = "Café Ganador"),
-//                Coffee(name = "Café Lareno"),
-//                Coffee(name = "Café Três Pontas"),
-//            )
-//        )
-        coffeeRepository.saveAll(
-            listOf(
-                Coffee("Café Cereza"),
-                Coffee("Café Ganador"),
-                Coffee("Café Lareno"),
-                Coffee("Café Três Pontas"),
-            )
-        )
-    }
 
     @GetMapping
     fun getCoffees(): Iterable<Coffee> {
@@ -46,10 +26,10 @@ class RestApiDemoController(private val coffeeRepository: CoffeeRepository) {
 
     @PutMapping("/{id}")
     fun putCoffee(@PathVariable id: String, @RequestBody coffee: Coffee): ResponseEntity<Coffee> {
-        return if (!coffeeRepository.existsById(id)) {
-            ResponseEntity(coffeeRepository.save(coffee), HttpStatus.CREATED)
-        } else {
+        return if (coffeeRepository.existsById(id)) {
             ResponseEntity(coffeeRepository.save(coffee), HttpStatus.OK)
+        } else {
+            ResponseEntity(coffeeRepository.save(coffee), HttpStatus.CREATED)
         }
     }
 
