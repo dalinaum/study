@@ -64,11 +64,11 @@ impl App {
     }
 
     fn increment_counter(&mut self) {
-        self.counter += 1;
+        self.counter = self.counter.saturating_add(1);
     }
 
     fn decrement_counter(&mut self) {
-        self.counter -= 1;
+        self.counter = self.counter.saturating_sub(1);
     }
 }
 
