@@ -2,13 +2,13 @@ use std::io;
 
 use crossterm::event::{self, Event, KeyCode, KeyEvent, KeyEventKind};
 use ratatui::{
+    DefaultTerminal, Frame,
     buffer::Buffer,
     layout::Rect,
     style::Stylize,
     symbols::border,
     text::{Line, Text},
     widgets::{Block, Paragraph, Widget},
-    DefaultTerminal, Frame,
 };
 
 fn main() -> io::Result<()> {
@@ -22,7 +22,6 @@ pub struct App {
 }
 
 impl App {
-
     // runs the application's main loop until the user quits
     pub fn run(&mut self, terminal: &mut DefaultTerminal) -> io::Result<()> {
         while !self.exit {
@@ -142,5 +141,16 @@ mod tests {
         let mut app = App::default();
         app.handle_key_event(KeyCode::Char('q').into());
         assert!(app.exit);
+    }
+
+    #[test]
+    fn counter_saturates_at_bounds() {
+        let mut app = App::default();
+        app.handle_key_event(KeyCode::Left.into());
+        assert_eq!(app.counter, 0);
+
+        app.counter = u8::MAX;
+        app.handle_key_event(KeyCode::Right.into());
+        assert_eq!(app.counter, u8::MAX);
     }
 }
