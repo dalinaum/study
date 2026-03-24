@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:18
+    container_name: kanban-app-db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: kanban-app
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d 'kanban-app'"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  db_data:
