@@ -1,66 +1,49 @@
-"use client"
+import Link from "next/link"
+import { prisma } from "@/lib/db"
+import { CreateBoardDialog } from "@/components/create-board-dialog"
 
-import { useActionState } from "react"
-import { createBoard } from "@/app/actions/board"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-
-export default function Home() {
-  const [state, formAction, isPending] = useActionState(createBoard, null)
+export default async function Home() {
+  const boards = await prisma.board.findMany({
+    orderBy: { createdAt: "desc" },
+  })
 
   return (
-    <div className="flex flex-1 flex-col items-center justify-center gap-6">
+    <div className="flex flex-1 flex-col items-center gap-6 p-8">
       <h1 className="text-3xl font-bold">칸반 보드</h1>
-      <Dialog>
-        <DialogTrigger render={<Button />}>새 보드 만들기</DialogTrigger>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>새 보드 만들기</DialogTitle>
-            <DialogDescription>
-              보드를 생성하면 기본으로 To Do, In Progress, Done 컬럼이 만들어집니다.
-            </DialogDescription>
-          </DialogHeader>
-          <form action={formAction} className="grid gap-4">
-            <div className="grid gap-2">
-              <Label htmlFor="title">제목</Label>
-              <Input
-                id="title"
-                name="title"
-                placeholder="보드 제목을 입력하세요"
-                required
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="description">설명 (선택)</Label>
-              <textarea
-                id="description"
-                name="description"
-                placeholder="보드 설명을 입력하세요"
-                rows={3}
-                className="w-full min-w-0 rounded-lg border border-input bg-transparent px-2.5 py-2 text-sm transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 dark:bg-input/30"
-              />
-            </div>
-            {state?.error && (
-              <p className="text-sm text-destructive">{state.error}</p>
-            )}
-            <DialogFooter>
-              <Button type="submit" disabled={isPending}>
-                {isPending ? "생성 중..." : "만들기"}
-              </Button>
-            </DialogFooter>
-          </form>
-        </DialogContent>
-      </Dialog>
+      <CreateBoardDialog />
+      {boards.length === 0 ? (
+        <p className="text-muted-foreground">보드가 없습니다</p>
+      ) : (
+        <ul className="grid w-full max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {boards.map((board) => (
+            <li
+              key={board.id}
+              className="rounded-lg border border-border p-4 transition-colors hover:bg-accent"
+            >
+              <Link href={`/boards/${board.id}`} className="block">
+                <h2 className="text-lg font-semibold">{board.title}</h2>
+                {board.description && (
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {board.description}
+                  </p>
+                )}
+                <time
+                  dateTime={board.createdAt.toISOString()}
+                  className="mt-2 block text-xs text-muted-foreground"
+                >
+                  {board.createdAt.toLocaleDateString("ko-KR", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </time>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   )
 }
