@@ -21,6 +21,27 @@ export interface TaskData {
   dueDate: Date | null
 }
 
+/** 날짜만 비교하여 기한 초과 여부를 판단합니다 (시간 무시). */
+export function isOverdue(dueDate: Date | null): boolean {
+  if (!dueDate) return false
+  const now = new Date()
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+  const due = new Date(dueDate)
+  const dueStart = new Date(due.getFullYear(), due.getMonth(), due.getDate())
+  return dueStart < todayStart
+}
+
+/** 기한 초과된 일수를 기반으로 상대 시간 문자열을 반환합니다. */
+function getOverdueText(dueDate: Date): string {
+  const now = new Date()
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+  const due = new Date(dueDate)
+  const dueStart = new Date(due.getFullYear(), due.getMonth(), due.getDate())
+  const diffMs = todayStart.getTime() - dueStart.getTime()
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24))
+  return `${diffDays}일 전에 기한 초과`
+}
+
 export function TaskCard({
   task,
   className,
@@ -28,10 +49,13 @@ export function TaskCard({
   task: TaskData
   className?: string
 }) {
+  const overdue = isOverdue(task.dueDate)
+
   return (
     <div
       className={cn(
         "rounded-md border bg-background p-3 shadow-sm",
+        overdue && "border-red-500",
         className
       )}
     >
@@ -46,8 +70,20 @@ export function TaskCard({
           {priorityLabels[task.priority]}
         </span>
         {task.dueDate && (
-          <span className="text-xs text-muted-foreground">
-            {new Date(task.dueDate).toLocaleDateString("ko-KR")}
+          <span
+            className={cn(
+              "text-xs",
+              overdue ? "text-red-500" : "text-muted-foreground"
+            )}
+          >
+            {overdue && (
+              <span className="mr-1" aria-label="기한 초과">
+                ⚠️
+              </span>
+            )}
+            {overdue
+              ? getOverdueText(task.dueDate)
+              : new Date(task.dueDate).toLocaleDateString("ko-KR")}
           </span>
         )}
       </div>

@@ -19,7 +19,7 @@ import {
 } from "@dnd-kit/sortable"
 import { useDroppable } from "@dnd-kit/core"
 import { SortableTask } from "@/components/sortable-task"
-import { TaskCard, type TaskData } from "@/components/task-card"
+import { TaskCard, type TaskData, isOverdue } from "@/components/task-card"
 import { CreateTaskDialog } from "@/components/create-task-dialog"
 import { moveTask } from "@/app/actions/task"
 import { cn } from "@/lib/utils"
@@ -42,10 +42,12 @@ function DroppableColumn({
   column,
   children,
   taskCount,
+  overdueCount,
 }: {
   column: ColumnData
   children: React.ReactNode
   taskCount: number
+  overdueCount: number
 }) {
   const { setNodeRef, isOver } = useDroppable({ id: column.id })
 
@@ -66,6 +68,11 @@ function DroppableColumn({
         </span>
         <h2 className="font-semibold">{column.title}</h2>
         <span className="text-sm text-muted-foreground">{taskCount}</span>
+        {overdueCount > 0 && (
+          <span className="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-red-500 px-1.5 text-xs font-medium text-white">
+            {overdueCount}
+          </span>
+        )}
       </div>
       <div className="flex flex-1 flex-col gap-2">
         {taskCount === 0 && (
@@ -227,7 +234,13 @@ export function KanbanBoard({ board }: { board: BoardData }) {
             items={column.tasks.map((t) => t.id)}
             strategy={verticalListSortingStrategy}
           >
-            <DroppableColumn column={column} taskCount={column.tasks.length}>
+            <DroppableColumn
+              column={column}
+              taskCount={column.tasks.length}
+              overdueCount={
+                column.tasks.filter((t) => isOverdue(t.dueDate)).length
+              }
+            >
               {column.tasks.map((task) => (
                 <SortableTask key={task.id} task={task} />
               ))}
