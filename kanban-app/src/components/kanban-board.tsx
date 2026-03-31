@@ -27,6 +27,7 @@ import { cn } from "@/lib/utils"
 interface ColumnData {
   id: string
   title: string
+  color: string
   tasks: TaskData[]
 }
 
@@ -40,9 +41,11 @@ interface BoardData {
 function DroppableColumn({
   column,
   children,
+  taskCount,
 }: {
   column: ColumnData
   children: React.ReactNode
+  taskCount: number
 }) {
   const { setNodeRef, isOver } = useDroppable({ id: column.id })
 
@@ -50,12 +53,28 @@ function DroppableColumn({
     <div
       ref={setNodeRef}
       className={cn(
-        "flex w-72 shrink-0 flex-col gap-3 rounded-lg border bg-muted/50 p-4 transition-colors",
+        "flex min-w-64 flex-1 flex-col gap-3 rounded-xl border bg-muted/50 p-4 transition-colors",
         isOver && "ring-2 ring-primary/50 bg-muted"
       )}
     >
-      <h2 className="font-semibold">{column.title}</h2>
-      <div className="flex flex-1 flex-col gap-2">{children}</div>
+      <div className="flex items-center gap-2">
+        <span
+          className="text-lg leading-none"
+          style={{ color: column.color }}
+        >
+          ●
+        </span>
+        <h2 className="font-semibold">{column.title}</h2>
+        <span className="text-sm text-muted-foreground">{taskCount}</span>
+      </div>
+      <div className="flex flex-1 flex-col gap-2">
+        {taskCount === 0 && (
+          <p className="py-8 text-center text-sm text-muted-foreground">
+            태스크가 없습니다
+          </p>
+        )}
+        {children}
+      </div>
       <CreateTaskDialog columnId={column.id} />
     </div>
   )
@@ -201,14 +220,14 @@ export function KanbanBoard({ board }: { board: BoardData }) {
       onDragEnd={handleDragEnd}
       onDragCancel={handleDragCancel}
     >
-      <div className="flex gap-4 overflow-x-auto">
+      <div className="flex gap-6 overflow-x-auto">
         {columns.map((column) => (
           <SortableContext
             key={column.id}
             items={column.tasks.map((t) => t.id)}
             strategy={verticalListSortingStrategy}
           >
-            <DroppableColumn column={column}>
+            <DroppableColumn column={column} taskCount={column.tasks.length}>
               {column.tasks.map((task) => (
                 <SortableTask key={task.id} task={task} />
               ))}

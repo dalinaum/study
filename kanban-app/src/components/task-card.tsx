@@ -36,7 +36,7 @@ export function TaskCard({
       )}
     >
       <p className="text-sm font-medium">{task.title}</p>
-      <div className="mt-1 flex items-center gap-2">
+      <div className="mt-1 flex items-center justify-between">
         <span
           className={cn(
             "inline-block rounded px-1.5 py-0.5 text-xs font-medium",
