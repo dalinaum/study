@@ -22,6 +22,7 @@ import { SortableTask } from "@/components/sortable-task"
 import { TaskCard, type TaskData } from "@/components/task-card"
 import { CreateTaskDialog } from "@/components/create-task-dialog"
 import { moveTask } from "@/app/actions/task"
+import { AddColumn } from "@/components/add-column"
 import { cn } from "@/lib/utils"
 
 interface ColumnData {
@@ -215,6 +216,7 @@ export function KanbanBoard({ board }: { board: BoardData }) {
             </DroppableColumn>
           </SortableContext>
         ))}
+        <AddColumn boardId={board.id} />
       </div>
       <DragOverlay>
         {activeTask ? <TaskCard task={activeTask} /> : null}
