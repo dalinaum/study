@@ -46,8 +46,8 @@ export default async function BoardPage({
         </div>
         <KanbanBoard
           key={board.columns
-            .flatMap((c) => c.tasks.map((t) => t.id))
-            .join(",")}
+            .map((c) => `${c.id}:${c.tasks.map((t) => t.id).join(",")}`)
+            .join("|")}
           board={board}
         />
       </div>
