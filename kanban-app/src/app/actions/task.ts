@@ -51,3 +51,48 @@ export async function createTask(prevState: unknown, formData: FormData) {
 
   return { success: true }
 }
+
+export async function moveTask(data: {
+  taskId: string
+  targetColumnId: string
+  taskIds: string[]
+}) {
+  const { taskId, targetColumnId, taskIds } = data
+
+  const task = await prisma.task.findUnique({
+    where: { id: taskId },
+    select: { columnId: true, column: { select: { boardId: true } } },
+  })
+
+  if (!task) {
+    return { error: "태스크를 찾을 수 없습니다." }
+  }
+
+  const OFFSET = 100000
+
+  await prisma.$transaction([
+    // 1단계: 임시 position으로 이동 (unique constraint 충돌 방지)
+    ...taskIds.map((id, index) =>
+      prisma.task.update({
+        where: { id },
+        data: {
+          columnId: targetColumnId,
+          position: OFFSET + index,
+        },
+      })
+    ),
+    // 2단계: 최종 position 설정
+    ...taskIds.map((id, index) =>
+      prisma.task.update({
+        where: { id },
+        data: {
+          position: index,
+        },
+      })
+    ),
+  ])
+
+  revalidatePath(`/boards/${task.column.boardId}`)
+
+  return { success: true }
+}
