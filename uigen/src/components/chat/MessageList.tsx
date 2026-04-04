@@ -14,8 +14,8 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
   if (messages.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center h-full px-4 text-center">
-        <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-50 mb-4 shadow-sm">
-          <Bot className="h-7 w-7 text-blue-600" />
+        <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-100 to-cyan-100 mb-4 shadow-sm">
+          <Bot className="h-7 w-7 text-sky-500" />
         </div>
         <p className="text-neutral-900 font-semibold text-lg mb-2">Start a conversation to generate React components</p>
         <p className="text-neutral-500 text-sm max-w-sm">I can help you create buttons, forms, cards, and more</p>
@@ -36,8 +36,8 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
           >
             {message.role === "assistant" && (
               <div className="flex-shrink-0">
-                <div className="w-9 h-9 rounded-lg bg-white border border-neutral-200 shadow-sm flex items-center justify-center">
-                  <Bot className="h-4.5 w-4.5 text-neutral-700" />
+                <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-sky-50 to-cyan-50 border border-sky-200 shadow-sm flex items-center justify-center">
+                  <Bot className="h-4.5 w-4.5 text-sky-500" />
                 </div>
               </div>
             )}
@@ -49,8 +49,8 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
               <div className={cn(
                 "rounded-xl px-4 py-3",
                 message.role === "user" 
-                  ? "bg-blue-600 text-white shadow-sm" 
-                  : "bg-white text-neutral-900 border border-neutral-200 shadow-sm"
+                  ? "bg-gradient-to-br from-sky-500 to-cyan-500 text-white shadow-sm"
+                  : "bg-white text-slate-800 border border-sky-100 shadow-sm"
               )}>
                 <div className="text-sm">
                   {message.parts ? (
@@ -77,7 +77,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
                           case "tool-invocation":
                             const tool = part.toolInvocation;
                             return (
-                              <div key={partIndex} className="inline-flex items-center gap-2 mt-2 px-3 py-1.5 bg-neutral-50 rounded-lg text-xs font-mono border border-neutral-200">
+                              <div key={partIndex} className="inline-flex items-center gap-2 mt-2 px-3 py-1.5 bg-sky-50/60 rounded-lg text-xs font-mono border border-sky-100">
                                 {tool.state === "result" && tool.result ? (
                                   <>
                                     <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
@@ -85,7 +85,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
                                   </>
                                 ) : (
                                   <>
-                                    <Loader2 className="w-3 h-3 animate-spin text-blue-600" />
+                                    <Loader2 className="w-3 h-3 animate-spin text-sky-500" />
                                     <span className="text-neutral-700">{tool.toolName}</span>
                                   </>
                                 )}
@@ -132,7 +132,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
             
             {message.role === "user" && (
               <div className="flex-shrink-0">
-                <div className="w-9 h-9 rounded-lg bg-blue-600 shadow-sm flex items-center justify-center">
+                <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-sky-500 to-cyan-500 shadow-sm flex items-center justify-center">
                   <User className="h-4.5 w-4.5 text-white" />
                 </div>
               </div>
